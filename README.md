@@ -6,7 +6,7 @@
 
 2) create a database in mysql. Ex:
 ```
-mysql -uroot -E "CREATE SCHEMA nexus_web;"
+mysql -uroot -e "CREATE SCHEMA nexus_web;"
 ```
 
 3) create a local dev domain name by inserting a line into /etc/hosts. Ex: 
