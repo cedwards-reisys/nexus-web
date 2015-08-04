@@ -21,41 +21,39 @@ function fs_search_block_info() {
 
 function fs_search_block_view($delta = '') {
     $block = array();
-
     switch ($delta) {
 
         case 'fs_search_simple_form':
             $block['subject'] = NULL;
-            $block['content'] = array(
-                '#markup' => fs_search_get_block_simple_form()
-            );
+            $block['content'] = theme('fs_search_simple_form');
             break;
 
         case 'fs_search_advanced_form':
             $block['subject'] = NULL;
-            $block['content'] = array(
-                '#markup' => fs_search_get_block_advanced_form()
-            );
+            $block['content'] = theme('fs_search_advanced_form');
             break;
 
         case 'fs_search_results':
             $block['subject'] = NULL;
-            $block['content'] = array(
-                '#markup' => fs_search_get_block_results()
-            );
+            $block['content'] = theme('fs_search_results');
             break;
     }
     return $block;
 }
 
-function fs_search_get_block_simple_form() {
-    return 'SEARCH SIMPLE FORM';
-}
-
-function fs_search_get_block_advanced_form() {
-    return 'SEARCH ADVANCED FORM';
-}
-
-function fs_search_get_block_results() {
-    return 'SEARCH RESULTS BLOCK';
+function fs_search_theme($existing, $type, $theme, $path) {
+    return array(
+        'fs_search_simple_form' => array(
+            'template' => 'form--simple',
+            'path' => drupal_get_path('module', 'fs_search') . '/templates',
+        ),
+        'fs_search_advanced_form' => array(
+            'template' => 'form--advanced',
+            'path' => drupal_get_path('module', 'fs_search') . '/templates',
+        ),
+        'fs_search_results' => array(
+            'template' => 'results',
+            'path' => drupal_get_path('module', 'fs_search') . '/templates',
+        )
+    );
 }
