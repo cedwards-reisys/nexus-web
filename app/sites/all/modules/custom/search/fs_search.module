@@ -1,0 +1,61 @@
+<?php
+
+
+function fs_search_block_info() {
+    $blocks = array();
+
+    $blocks['fs_search_simple_form'] = array(
+        'info' => t('FedSpending Search Simple Form')
+    );
+
+    $blocks['fs_search_advanced_form'] = array(
+        'info' => t('FedSpending Search Advanced Form')
+    );
+
+    $blocks['fs_search_results'] = array(
+        'info' => t('FedSpending Search Results')
+    );
+
+    return $blocks;
+}
+
+function fs_search_block_view($delta = '') {
+    $block = array();
+
+    switch ($delta) {
+
+        case 'fs_search_simple_form':
+            $block['subject'] = NULL;
+            $block['content'] = array(
+                '#markup' => fs_search_get_block_simple_form()
+            );
+            break;
+
+        case 'fs_search_advanced_form':
+            $block['subject'] = NULL;
+            $block['content'] = array(
+                '#markup' => fs_search_get_block_advanced_form()
+            );
+            break;
+
+        case 'fs_search_results':
+            $block['subject'] = NULL;
+            $block['content'] = array(
+                '#markup' => fs_search_get_block_results()
+            );
+            break;
+    }
+    return $block;
+}
+
+function fs_search_get_block_simple_form() {
+    return 'SEARCH SIMPLE FORM';
+}
+
+function fs_search_get_block_advanced_form() {
+    return 'SEARCH ADVANCED FORM';
+}
+
+function fs_search_get_block_results() {
+    return 'SEARCH RESULTS BLOCK';
+}
