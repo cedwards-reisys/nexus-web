@@ -10,7 +10,7 @@
     }
 
 
-    if ( typeof $ === 'undefined' ) {
+    if ( typeof global.jQuery === 'undefined' ) {
         throw new Error('FS requires jQuery');
     }
 

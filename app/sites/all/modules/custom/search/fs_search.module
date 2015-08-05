@@ -1,5 +1,8 @@
 <?php
 
+function fs_search_init() {
+    drupal_add_library('fs_search', 'datatables');
+}
 
 function fs_search_block_info() {
     $blocks = array();
@@ -56,4 +59,23 @@ function fs_search_theme($existing, $type, $theme, $path) {
             'path' => drupal_get_path('module', 'fs_search') . '/templates',
         )
     );
+}
+
+function fs_search_library() {
+    $libraries = array();
+
+    $libraries['datatables'] = array(
+        'title'   => 'DataTables',
+        'website' => 'http://www.datatables.net',
+        'version' => '1.10.7',
+        'js' => array(
+            'sites/all/libraries/datatables/media/js/jquery.dataTables.js' => array('weight' => 0),
+            'sites/all/libraries/datatables/plugins/integration/bootstrap/3/dataTables.bootstrap.js' => array('weight' => 0)
+        ),
+        'css' => array (
+            'sites/all/libraries/datatables/plugins/integration/bootstrap/3/dataTables.bootstrap.css' => array('weight'=>-1)
+        )
+    );
+
+    return $libraries;
 }
