@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the FS Search Features feature.
  */
+
+include_once 'fs_seach_features.features.inc';
