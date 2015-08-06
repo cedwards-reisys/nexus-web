@@ -3,7 +3,3 @@ description = "API Search interface"
 package = FedSpending
 version = 7.x-1.x
 core = 7.x
-
-scripts[] = js/fs/FS.js
-scripts[] = js/fs/Class.js
-scripts[] = js/util/UriHandler.js

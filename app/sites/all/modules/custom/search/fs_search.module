@@ -2,6 +2,7 @@
 
 function fs_search_init() {
     drupal_add_library('fs_search', 'datatables');
+    drupal_add_library('fs_search', 'fs_search');
 }
 
 function fs_search_block_info() {
@@ -74,6 +75,29 @@ function fs_search_library() {
         ),
         'css' => array (
             'sites/all/libraries/datatables/plugins/integration/bootstrap/3/dataTables.bootstrap.css' => array('weight'=>-1)
+        ),
+        'dependencies' => array(
+            array('system','jquery')
+        )
+    );
+
+    $libraries['fs_search'] = array(
+        'title'   => 'FedSpending Search',
+        'version' => '1.0.0',
+        'js' => array(
+            drupal_get_path('module', 'fs_search').'/js/fs/FS.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs_search').'/js/fs/Class.js' => array('weight' => 101),
+            drupal_get_path('module', 'fs_search').'/js/util/DateFormat.js' => array('weight' => 102),
+            drupal_get_path('module', 'fs_search').'/js/util/StringFormat.js' => array('weight' => 103),
+            drupal_get_path('module', 'fs_search').'/js/util/NumberFormat.js' => array('weight' => 104),
+            drupal_get_path('module', 'fs_search').'/js/util/UriHandler.js' => array('weight' => 105),
+            drupal_get_path('module', 'fs_search').'/js/app.js' => array('weight' => 106)
+        ),
+        'css' => array (
+            drupal_get_path('module', 'fs_search').'/css/data.css' => array('weight' => 0),
+        ),
+        'dependencies' => array(
+            array('system','jquery')
         )
     );
 

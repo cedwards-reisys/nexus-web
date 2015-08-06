@@ -1,5 +1,5 @@
 
-(function(global){
+(function(global, $, undefined){
 
     if ( typeof global.FS === 'undefined' ) {
         throw new Error('Class requires FS');
@@ -64,4 +64,4 @@
 
     global.FS.Class = Class;
 
-})(typeof window === 'undefined' ? this : window);
+})(typeof window === 'undefined' ? this : window, jQuery);

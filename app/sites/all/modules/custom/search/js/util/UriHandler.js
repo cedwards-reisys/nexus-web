@@ -1,9 +1,11 @@
 
-(function (global) {
+(function (global, $, undefined) {
 
     if (typeof global.FS === 'undefined') {
         throw new Error('Util requires FS');
     }
+
+    var FS = global.FS;
 
     var UriHandler = FS.Class.extend({
 
@@ -207,6 +209,6 @@
 
     });
 
-    global.FS.Util.UriHandler = UriHandler;
+    FS.Util.UriHandler = UriHandler;
 
-})(typeof window === 'undefined' ? this : window);
+})(typeof window === 'undefined' ? this : window, jQuery);
