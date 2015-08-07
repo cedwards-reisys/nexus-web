@@ -81,6 +81,7 @@
             searching: false,
             iDisplayLength: ROWS_PER_PAGE,
             //pageLength: ROWS_PER_PAGE,
+            bLengthChange: false,
             order: [[ 3,'desc']],
             language: {
                 info: 'Showing _START_ to _END_ of _MAX_ records',
