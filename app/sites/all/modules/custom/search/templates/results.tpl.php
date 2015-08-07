@@ -68,6 +68,7 @@
 <script type="text/javascript">
     jQuery(function() {
 
+        var API_HOST = 'https://fedspending.demo.socrata.com/resource/nfu7-rhaq.json';
 
         var Uri = new FS.Util.UriHandler();
         jQuery('#searchInputKeywords').find('input').val(Uri.getParam('keywords'));
@@ -148,17 +149,17 @@
 
                     jQuery('#keywordsText').html(textSearch);
 
-                    query['$q'] = textSearch;
-                    //query['$where'] = 'vendorname like \'%' + textSearch.replace(/'/g, "''") + '%\'';
-                    //query['$where'] += ' OR contractactiontype like \'%' + textSearch.replace(/'/g, "''") + '%\'';
-                    //query['$where'] += ' OR agencyid like \'%' + textSearch.replace(/'/g, "''") + '%\''
-                    //query['$where'] += ' OR fundingrequestingagencyid like \'%' + textSearch.replace(/'/g, "''") + '%\''
+                    //query['$q'] = textSearch;
+                    query['$where'] = 'UPPER(vendorname) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\'';
+                    query['$where'] += ' OR UPPER(contractactiontype) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\'';
+                    query['$where'] += ' OR UPPER(agencyid) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\''
+                    query['$where'] += ' OR UPPER(fundingrequestingagencyid) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\''
                 }
 
                 oSettings.jqXHR = jQuery.ajax({
                     dataType: 'json',
                     type: 'GET',
-                    url: 'https://fedspending.demo.socrata.com/resource/3kp6-u7ur.json',
+                    url: API_HOST,
                     data: query
                 }).done(function (data) {
                     var json = {};
@@ -174,9 +175,19 @@
                         }
                         json.aaData = data;
 
+                        var countQuery = {
+                            '$select': 'count(1)'
+                        };
+
+                        if ( query['$where'] ) {
+                            countQuery['$where'] = query['$where'];
+                        }
+
                         jQuery.ajax({
-                            url: 'https://fedspending.demo.socrata.com/resource/3kp6-u7ur.json?$select=count(1)',
-                            dataType: 'json'
+                            url: API_HOST,
+                            type: 'GET',
+                            dataType: 'json',
+                            data: countQuery
                         }).done(function( data ) {
                             jQuery('#searchTransactionCount').find('dd').html(FS.Util.NumberFormat.getString(data[0].count_1, 0));
                             jQuery('#searchContractCount').find('dd').html(FS.Util.NumberFormat.getString(data[0].count_1, 0));
@@ -189,9 +200,18 @@
                             jQuery('#searchContractCount').find('dd').html('-');
                         });
 
+                        var sumQuery = {
+                            '$select': 'sum(dollarsobligated)'
+                        };
+
+                        if ( query['$where'] ) {
+                            sumQuery['$where'] = query['$where'];
+                        }
                         jQuery.ajax({
-                            url: 'https://fedspending.demo.socrata.com/resource/3kp6-u7ur.json?$select=sum(dollarsobligated)',
-                            dataType: 'json'
+                            url: API_HOST,
+                            type: 'GET',
+                            dataType: 'json',
+                            data: sumQuery
                         }).done(function( data ) {
                             jQuery('#searchTransactionSum').find('dd').html(FS.Util.NumberFormat.getCurrency(data[0].sum_dollarsobligated,0));
                         }).fail(function(){
@@ -203,18 +223,24 @@
 
                         debugger;
 
-
-
-
                         jQuery('#searchResults').dataTable().fnSettings().oLanguage.sEmptyTable = 'There was an error retrieving table data.';
                         jQuery('#searchResults').dataTable().fnDraw();
+
+                        jQuery('#searchTransactionCount').find('dd').html('-');
+                        jQuery('#searchContractCount').find('dd').html('-');
+                        jQuery('#searchTransactionSum').find('dd').html('-');
                     }
                 }).fail(function (jqXHR, textStatus, errorThrown) {
                     debugger;
+
+                    jQuery('#searchResults').dataTable().fnSettings().oLanguage.sEmptyTable = 'There was an error retrieving table data.';
+                    jQuery('#searchResults').dataTable().fnDraw();
+
                     jQuery('#searchTransactionCount').find('dd').html('-');
                     jQuery('#searchContractCount').find('dd').html('-');
                     jQuery('#searchTransactionSum').find('dd').html('-');
-                    fnCallback({aaData:[],iTotalDisplayRecords:ROWS_PER_PAGE});
+
+                    //fnCallback({aaData:[],iTotalDisplayRecords:ROWS_PER_PAGE});
                 });
             }
         });
@@ -222,6 +248,14 @@
 
         jQuery('#searchInputKeywords').find('button').on('click',function(){
             searchResultsTable.api().ajax.reload();
+        });
+
+        jQuery('#searchInputKeywords').find('input').on('keyup',function(e){
+            var key = e.which;
+            if ( key == 13 ) {
+                searchResultsTable.api().ajax.reload();
+                return false;
+            }
         });
 
     });
