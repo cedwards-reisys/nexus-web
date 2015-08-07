@@ -78,7 +78,8 @@
             processing: true,
             serverSide: true,
             searching: false,
-            pageLength: ROWS_PER_PAGE,
+            iDisplayLength: ROWS_PER_PAGE,
+            //pageLength: ROWS_PER_PAGE,
             order: [[ 3,'desc']],
             language: {
                 info: 'Showing _START_ to _END_ of _MAX_ records',
@@ -180,6 +181,7 @@
                             jQuery('#searchTransactionCount').find('dd').html(FS.Util.NumberFormat.getString(data[0].count_1, 0));
                             jQuery('#searchContractCount').find('dd').html(FS.Util.NumberFormat.getString(data[0].count_1, 0));
 
+                            json.iTotalDisplayRecords = data[0].count_1;
                             json.iTotalRecords = data[0].count_1;
                             fnCallback(json);
                         }).fail(function(){
@@ -192,8 +194,6 @@
                             dataType: 'json'
                         }).done(function( data ) {
                             jQuery('#searchTransactionSum').find('dd').html(FS.Util.NumberFormat.getCurrency(data[0].sum_dollarsobligated,0));
-                            json.iTotalRecords = data[0].count_1;
-                            fnCallback(json);
                         }).fail(function(){
                             jQuery('#searchTransactionSum').find('dd').html('-');
                         });
