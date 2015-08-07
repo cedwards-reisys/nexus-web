@@ -39,12 +39,130 @@
 <div class="row">
 
     <div class="col-md-2">
-        <h3>Show Results with:</h3>
+        <h3>Filter</h3>
+
+        <div id="searchFilterPanel" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Amount
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                                    <div class="input-group-addon">.00</div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Award ID
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+
+                        <input type="text" class="form-control" placeholder="Award ID">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Award Date
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputName2">From</label>
+                                <input type="text" class="form-control" id="exampleInputName2" placeholder="mm/dd/yyy">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">To</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="mm/dd/yyyy">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Recipient
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+
+                        <input type="text" class="form-control" placeholder="Recipient Name">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Award Type
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="">
+                                DO Delivery Order
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="">
+                                PO Purchase Order
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="">
+                                DCA Definitive Contract
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-9">
         <h3>Results Analysis</h3>
 
         <table id="searchResults" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -63,7 +181,17 @@
 
     </div>
 
+    <div class="col-md-1 dataViewButtons">
+        <div><button class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
+        <div><button class="btn btn-default" disabled="disabled"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
+        <div><button class="btn btn-default" disabled="disabled"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
+    </div>
+
 </div>
+
+
+
+
 
 <script type="text/javascript">
     jQuery(function() {
