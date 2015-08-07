@@ -8,11 +8,11 @@
     </div>
 </div>
 
-<h2>Keywords: <span id="keywordsText"></span> </h2>
+<h3>Keywords: <span id="keywordsText"></span> </h3>
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <h3>Results Summary</h3>
+        <h3>Summary</h3>
         <div class="row">
             <div class="col-md-4">
                 <dl id="searchTransactionSum">
@@ -163,7 +163,7 @@
     </div>
 
     <div class="col-md-9">
-        <h3>Results Analysis</h3>
+        <h3>Results</h3>
 
         <table id="searchResults" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
