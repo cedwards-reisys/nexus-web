@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<h2>Keywords: <span id="keywordsText">"treasury"</span> </h2>
+<h2>Keywords: <span id="keywordsText"></span> </h2>
 
 <div class="panel panel-default">
     <div class="panel-body">
