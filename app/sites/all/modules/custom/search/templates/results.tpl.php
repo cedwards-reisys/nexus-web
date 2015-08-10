@@ -93,9 +93,7 @@
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                     <div class="panel-body">
-
-                        <input type="text" class="form-control" placeholder="Award ID">
-
+                        <input type="text" id="awardIdInput" lass="form-control" placeholder="Award ID">
                     </div>
                 </div>
             </div>
@@ -218,7 +216,7 @@
             searching: false,
             iDisplayLength: ROWS_PER_PAGE,
             bLengthChange: false,
-            order: [[ 3,'desc']],
+            order: [[ 2,'desc']],
             language: {
                 info: 'Showing _START_ to _END_ of _MAX_ records',
                 processing: '<div class="dataTableFetching"></div>'
@@ -230,7 +228,8 @@
                 },
                 {
                     data: 'piid',
-                    name: 'piid'
+                    name: 'piid',
+                    className: 'data-type-piid'
                 },
                 {
                     data: 'dollarsobligated',
@@ -265,10 +264,15 @@
                     name: 'fundingrequestingagencyid'
                 }
             ],
+            fnDrawCallback: function() {
+                jQuery('[data-toggle="popover"]').popover();
+            },
             fnServerData: function  ( sSource, aoData, fnCallback, oSettings ) {
                 var page = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength);
-                var columnNames = ['vendorname','piid','dollarsobligated','signeddate','contractactiontype','agencyid','fundingrequestingagencyid'];
-                var order = columnNames[oSettings.aaSorting[0][0]] + ' ' + oSettings.aaSorting[0][1];
+                var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','contractactiontype','agencyid','fundingrequestingagencyid'];
+                var order = columnNames[oSettings.aaSorting[0][0]+1] + ' ' + oSettings.aaSorting[0][1];
+                console.log(oSettings.aaSorting);
+                console.log(order);
 
                 var query = {
                     '$select': columnNames.join(','),
@@ -281,11 +285,18 @@
                 var textSearch = jQuery('#searchInputKeywords').find('input').val();
                 if ( textSearch ) {
                     jQuery('#keywordsText').html(textSearch);
-                    //query['$q'] = textSearch;
-                    query['$where'] = '(UPPER(vendorname) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\'';
-                    query['$where'] += ' OR UPPER(contractactiontype) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\'';
-                    query['$where'] += ' OR UPPER(agencyid) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\'';
-                    query['$where'] += ' OR UPPER(fundingrequestingagencyid) like \'%' + textSearch.replace(/'/g, "''").toUpperCase() + '%\') ';
+                    query['$q'] = textSearch;
+                }
+
+                // Award Id Input
+                var awardIdSearch = jQuery('#awardIdInput').val();
+                if ( awardIdSearch ) {
+                    if ( typeof query['$where'] === 'undefined' ) {
+                        query['$where'] = '';
+                    } else {
+                        query['$where'] += ' AND ';
+                    }
+                    query['$where'] += 'UPPER(piid) = \''+awardIdSearch.toUpperCase()+'\' ';
                 }
 
                 // Recipient Name Input
@@ -338,6 +349,10 @@
                             for ( var j = 0, jlen = columnNames.length; j < jlen; j++ ) {
                                 if ( typeof data[i][columnNames[j]] == 'undefined' ) {
                                     data[i][columnNames[j]] = '';
+                                } else {
+                                    if (j === 2) {
+                                        data[i][columnNames[j]] = '<span data-toggle="popover" title="Details" data-content="'+data[i][columnNames[0]]+'">'+data[i][columnNames[j]]+'</span>';
+                                    }
                                 }
                             }
                         }
@@ -444,6 +459,14 @@
         }
         initAwardTypeForm();
 
+
+        jQuery('#awardIdInput').on('keyup',function(e){
+            var key = e.which;
+            if ( key == 13 ) {
+                searchResultsTable.api().ajax.reload();
+                return false;
+            }
+        });
 
         jQuery('#recipientNameInput').on('keyup',function(e){
             var key = e.which;

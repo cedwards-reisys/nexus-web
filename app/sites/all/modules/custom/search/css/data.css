@@ -27,3 +27,8 @@
 .dataViewButtons div span.disabled{
     color: #666666;
 }
+
+.data-type-piid span {
+    text-decoration: underline;
+    cursor: pointer;
+}
