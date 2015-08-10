@@ -271,8 +271,6 @@
                 var page = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength);
                 var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','contractactiontype','agencyid','fundingrequestingagencyid'];
                 var order = columnNames[oSettings.aaSorting[0][0]+1] + ' ' + oSettings.aaSorting[0][1];
-                console.log(oSettings.aaSorting);
-                console.log(order);
 
                 var query = {
                     '$select': columnNames.join(','),
