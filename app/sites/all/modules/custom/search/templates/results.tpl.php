@@ -93,7 +93,7 @@
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                     <div class="panel-body">
-                        <input type="text" id="awardIdInput" lass="form-control" placeholder="Award ID">
+                        <input type="text" id="awardIdInput" class="form-control" placeholder="Award ID">
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@
                 <div class="panel-heading" role="tab" id="headingFive">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            Award Type
+                            Transaction Type
                         </a>
                     </h4>
                 </div>
@@ -151,6 +151,22 @@
                     </div>
                 </div>
             </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingSix">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            Contracting Agency
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                    <div class="panel-body">
+                        <input type="text" id="contractAgencyNameInput" class="form-control" placeholder="Agency Name">
+                    </div>
+                </div>
+            </div>
+            
+            
         </div>
 
 
@@ -180,8 +196,8 @@
                     <th>Award ID</th>
                     <th>Award Amount</th>
                     <th>Award Date</th>
-                    <th>Award Type</th>
-                    <th>Awarding Agency</th>
+                    <th>Transaction Type</th>
+                    <th>Contracting Agency</th>
                     <th>Funding Agency</th>
                 </tr>
                 </thead>
@@ -308,6 +324,17 @@
                     query['$where'] += 'UPPER(vendorname) = \''+recipientNameSearch.toUpperCase()+'\' ';
                 }
 
+                // Contracting Agency Name Input
+                var contractAgencyNameSearch = jQuery('#contractAgencyNameInput').val();
+                if ( contractAgencyNameSearch ) {
+                    if ( typeof query['$where'] === 'undefined' ) {
+                        query['$where'] = '';
+                    } else {
+                        query['$where'] += ' AND ';
+                    }
+                    query['$where'] += 'UPPER(agencyid) = \''+contractAgencyNameSearch.toUpperCase()+'\' ';
+                }
+
                 // Award Type Input
                 var awardTypeSearch = jQuery('#awardTypeInput').find('input:checked');
                 if ( awardTypeSearch ) {
@@ -364,6 +391,10 @@
                             countQuery['$where'] = query['$where'];
                         }
 
+                        if ( query['$q'] ) {
+                            countQuery['$q'] = query['$q'];
+                        }
+
                         jQuery.ajax({
                             url: API_HOST,
                             type: 'GET',
@@ -377,8 +408,10 @@
                             json.iTotalRecords = data[0].count_1;
                             fnCallback(json);
                         }).fail(function(){
-                            jQuery('#searchTransactionCount').find('dd').html('-');
-                            jQuery('#searchContractCount').find('dd').html('-');
+
+                            jQuery('#searchTableWrapper').hide();
+                            jQuery('#searchErrorMessage').show();
+
                         });
 
                         var sumQuery = {
@@ -388,6 +421,11 @@
                         if ( query['$where'] ) {
                             sumQuery['$where'] = query['$where'];
                         }
+
+                        if ( query['$q'] ) {
+                            sumQuery['$q'] = query['$q'];
+                        }
+
                         jQuery.ajax({
                             url: API_HOST,
                             type: 'GET',
@@ -396,20 +434,20 @@
                         }).done(function( data ) {
                             jQuery('#searchTransactionSum').find('dd').html(FS.Util.NumberFormat.getCurrency(data[0].sum_dollarsobligated,0));
                         }).fail(function(){
-                            jQuery('#searchTransactionSum').find('dd').html('-');
+
+                            jQuery('#searchTableWrapper').hide();
+                            jQuery('#searchErrorMessage').show();
+
                         });
 
 
                     } else {
 
-                        debugger;
+                        console.log(data);
 
-                        jQuery('#searchResults').dataTable().fnSettings().oLanguage.sEmptyTable = 'There was an error retrieving table data.';
-                        jQuery('#searchResults').dataTable().fnDraw();
+                        jQuery('#searchTableWrapper').hide();
+                        jQuery('#searchErrorMessage').show();
 
-                        jQuery('#searchTransactionCount').find('dd').html('-');
-                        jQuery('#searchContractCount').find('dd').html('-');
-                        jQuery('#searchTransactionSum').find('dd').html('-');
                     }
                 }).fail(function (jqXHR, textStatus, errorThrown) {
 
