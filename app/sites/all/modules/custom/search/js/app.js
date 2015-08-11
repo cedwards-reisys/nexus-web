@@ -121,7 +121,19 @@
                     var textSearch = $('#searchInputKeywords').find('input').val();
                     if ( textSearch ) {
                         $('#keywordsText').html(textSearch);
-                        query['$q'] = textSearch;
+
+                        Uri.addParam('keywords',textSearch);
+                        window.history.pushState({keywords: textSearch}, 'Search Results', Uri.getURI());
+
+                        //query['$q'] = textSearch;
+
+                        var preparedTextSearch = textSearch.replace(/'/g, "''").toUpperCase();
+                        var textFields = ['vendorname','agencyid','fundingrequestingagencyid','descriptionofcontractrequirement','dunsnumber','piid'];
+                        var textQueries = [];
+                        for ( var i= 0,len=textFields.length;i<len;i++) {
+                            textQueries.push('UPPER(' + textFields[i] + ') like \'%' + preparedTextSearch + '%\'');
+                        }
+                        query['$where'] = '(' + textQueries.join(' OR ') + ') ';
                     }
 
                     // Award Id Input
