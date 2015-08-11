@@ -53,32 +53,17 @@
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body" style="padding-left: 5px; padding-right: 5px;">
 
-                        <form class="form-horizontal">
-                            <div class="form-group form-group-sm">
-                                <div class="col-md-7" style="padding-left: 5px; padding-right: 5px;">
-                                    <select class="form-control input-sm">
-                                        <option></option>
-                                        <option value="<">Less than</option>
-                                        <option value=">">Greater than</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-5" style="padding-left: 5px; padding-right: 5px;">
-                                    <input type="text" class="form-control input-sm" id="exampleInputAmount" placeholder="Amount">
-                                </div>
+                        <div class="form-group form-group-sm">
+                            <div class="col-md-7" style="padding-left: 5px; padding-right: 5px;">
+                                <select class="form-control input-sm" id="awardAmountOperatorInput">
+                                    <option value="<">Less than</option>
+                                    <option value=">">Greater than</option>
+                                </select>
                             </div>
-                            <div class="form-group form-group-sm">
-                                <div class="col-md-7" style="padding-left: 5px; padding-right: 5px;">
-                                    <select class="form-control input-sm">
-                                        <option></option>
-                                        <option value="<">Less than</option>
-                                        <option value=">">Greater than</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-5" style="padding-left: 5px; padding-right: 5px;">
-                                    <input type="text" class="form-control input-sm" id="exampleInputAmount" placeholder="Amount">
-                                </div>
+                            <div class="col-md-5" style="padding-left: 5px; padding-right: 5px;">
+                                <input type="text" class="form-control input-sm" id="awardAmountInput" placeholder="Amount">
                             </div>
-                        </form>
+                        </div>
 
                     </div>
                 </div>

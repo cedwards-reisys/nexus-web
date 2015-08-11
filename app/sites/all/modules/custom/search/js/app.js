@@ -122,8 +122,8 @@
                     if ( textSearch ) {
                         $('#keywordsText').html(textSearch);
 
-                        Uri.addParam('keywords',textSearch);
-                        window.history.pushState({keywords: textSearch}, 'Search Results', Uri.getURI());
+                        //Uri.addParam('keywords',textSearch);
+                        //window.history.pushState({keywords: textSearch}, 'Search Results', Uri.getURI());
 
                         //query['$q'] = textSearch;
 
@@ -134,6 +134,19 @@
                             textQueries.push('UPPER(' + textFields[i] + ') like \'%' + preparedTextSearch + '%\'');
                         }
                         query['$where'] = '(' + textQueries.join(' OR ') + ') ';
+                    }
+
+                    // Award Amount
+                    var awardAmountSearch = $('#awardAmountInput').val();
+                    var awardAmountOperatorSearch = $('#awardAmountOperatorInput').val();
+
+                    if ( awardAmountSearch && awardAmountOperatorSearch ) {
+                        if ( typeof query['$where'] === 'undefined' ) {
+                            query['$where'] = '';
+                        } else {
+                            query['$where'] += ' AND ';
+                        }
+                        query['$where'] += 'dollarsobligated ' + awardAmountOperatorSearch + ' ' + parseInt(awardAmountSearch) + ' ';
                     }
 
                     // Award Id Input
@@ -332,7 +345,7 @@
 
             $('#awardIdInput').on('keyup',function(e){
                 var key = e.which;
-                if ( key == 13 ) {
+                if ( key == 13 && $(this).val() ) {
                     searchResultsTable.api().ajax.reload();
                     return false;
                 }
@@ -340,9 +353,24 @@
 
             $('#recipientNameInput').on('keyup',function(e){
                 var key = e.which;
-                if ( key == 13 ) {
+                if ( key == 13 && $(this).val() ) {
                     searchResultsTable.api().ajax.reload();
                     return false;
+                }
+            });
+
+            // Amount form controller
+            $('#awardAmountInput').on('keyup',function(e){
+                var key = e.which;
+                if ( key == 13 && $(this).val() ) {
+                    searchResultsTable.api().ajax.reload();
+                    return false;
+                }
+            });
+
+            $('#awardAmountOperatorInput').on('change',function(e){
+                if ( $('#awardAmountInput').val() ) {
+                    searchResultsTable.api().ajax.reload();
                 }
             });
 
