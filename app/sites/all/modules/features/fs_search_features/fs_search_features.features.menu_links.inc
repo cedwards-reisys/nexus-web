@@ -27,28 +27,28 @@ function fs_search_features_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_search:node/4
-  $menu_links['main-menu_search:node/4'] = array(
+  // Exported menu link: main-menu_search-results:node/5
+  $menu_links['main-menu_search-results:node/5'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/4',
+    'link_path' => 'node/5',
     'router_path' => 'node/%',
-    'link_title' => 'Search',
+    'link_title' => 'Search Results',
     'options' => array(
-      'identifier' => 'main-menu_search:node/4',
+      'identifier' => 'main-menu_search-results:node/5',
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
+    'weight' => 0,
+    'customized' => 0,
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Home');
-  t('Search');
+  t('Search Results');
 
   return $menu_links;
 }
