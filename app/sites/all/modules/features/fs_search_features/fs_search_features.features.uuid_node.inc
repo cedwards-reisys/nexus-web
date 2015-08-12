@@ -12,7 +12,7 @@ function fs_search_features_uuid_features_default_content() {
 
   $nodes[] = array(
   'uid' => 1,
-  'title' => 'Search Results',
+  'title' => 'Search',
   'log' => '',
   'status' => 1,
   'comment' => 1,
