@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * fs_seach_features.features.menu_links.inc
+ * fs_search_features.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function fs_seach_features_menu_default_menu_links() {
+function fs_search_features_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: main-menu_home:<front>

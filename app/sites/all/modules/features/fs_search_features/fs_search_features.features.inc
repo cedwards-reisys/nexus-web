@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * fs_seach_features.features.inc
+ * fs_search_features.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function fs_seach_features_ctools_plugin_api($module = NULL, $api = NULL) {
+function fs_search_features_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
@@ -16,7 +16,7 @@ function fs_seach_features_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_node_info().
  */
-function fs_seach_features_node_info() {
+function fs_search_features_node_info() {
   $items = array(
     'page' => array(
       'name' => t('Basic page'),

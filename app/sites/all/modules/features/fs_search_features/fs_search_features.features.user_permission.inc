@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * fs_seach_features.features.user_permission.inc
+ * fs_search_features.features.user_permission.inc
  */
 
 /**
  * Implements hook_user_default_permissions().
  */
-function fs_seach_features_user_default_permissions() {
+function fs_search_features_user_default_permissions() {
   $permissions = array();
 
   // Exported permission: 'access administration pages'.

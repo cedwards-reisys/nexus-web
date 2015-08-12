@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * fs_seach_features.features.uuid_node.inc
+ * fs_search_features.features.uuid_node.inc
  */
 
 /**
  * Implements hook_uuid_features_default_content().
  */
-function fs_seach_features_uuid_features_default_content() {
+function fs_search_features_uuid_features_default_content() {
   $nodes = array();
 
   $nodes[] = array(

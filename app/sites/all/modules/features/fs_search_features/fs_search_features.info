@@ -29,7 +29,6 @@ dependencies[] = user
 dependencies[] = uuid
 dependencies[] = uuid_features
 __drupal_alter_by_ref[][node][page] = page
-features[context][] = fs_advanced_search
 features[context][] = fs_search_results
 features[context][] = home
 features[context][] = sitewide

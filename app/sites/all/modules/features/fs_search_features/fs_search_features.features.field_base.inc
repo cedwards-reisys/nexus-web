@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * fs_seach_features.features.field_base.inc
+ * fs_search_features.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function fs_seach_features_field_default_field_bases() {
+function fs_search_features_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'body'

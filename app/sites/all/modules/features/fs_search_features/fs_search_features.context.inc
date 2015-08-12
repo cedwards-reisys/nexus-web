@@ -1,25 +1,14 @@
 <?php
 /**
  * @file
- * fs_seach_features.context.inc
+ * fs_search_features.context.inc
  */
 
 /**
  * Implements hook_context_default_contexts().
  */
-function fs_seach_features_context_default_contexts() {
+function fs_search_features_context_default_contexts() {
   $export = array();
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
-  $context->name = 'fs_advanced_search';
-  $context->description = '';
-  $context->tag = '';
-  $context->conditions = array();
-  $context->reactions = array();
-  $context->condition_mode = 0;
-  $export['fs_advanced_search'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */

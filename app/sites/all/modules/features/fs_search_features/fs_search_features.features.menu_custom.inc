@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * fs_seach_features.features.menu_custom.inc
+ * fs_search_features.features.menu_custom.inc
  */
 
 /**
  * Implements hook_menu_default_menu_custom().
  */
-function fs_seach_features_menu_default_menu_custom() {
+function fs_search_features_menu_default_menu_custom() {
   $menus = array();
 
   // Exported menu: main-menu.

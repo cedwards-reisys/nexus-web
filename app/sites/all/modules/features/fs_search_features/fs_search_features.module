@@ -4,4 +4,4 @@
  * Code for the FS Search Features feature.
  */
 
-include_once 'fs_seach_features.features.inc';
+include_once 'fs_search_features.features.inc';
