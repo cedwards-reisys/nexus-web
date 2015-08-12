@@ -30,7 +30,7 @@ function fs_seach_features_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'node/4' => 'node/4',
+        'search' => 'search',
       ),
     ),
   );
