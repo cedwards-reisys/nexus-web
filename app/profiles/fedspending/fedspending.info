@@ -33,5 +33,5 @@ dependencies[] = features
 dependencies[] = uuid_features
 
 dependencies[] = fs_search
-
+dependencies[] = fs_search_features
 
