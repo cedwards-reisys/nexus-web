@@ -27,7 +27,7 @@ function fs_search_features_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_search-results:search
+  // Exported menu link: main-menu_search:search
   $menu_links['main-menu_search:search'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'search',
