@@ -128,7 +128,7 @@
                         //query['$q'] = textSearch;
 
                         var preparedTextSearch = textSearch.replace(/'/g, "''").toUpperCase();
-                        var textFields = ['vendorname','agencyid','fundingrequestingagencyid','descriptionofcontractrequirement','dunsnumber','piid'];
+                        var textFields = ['vendorname','agencyid','fundingrequestingagencyid','descriptionofcontractrequirement'];
                         var textQueries = [];
                         for ( var i= 0,len=textFields.length;i<len;i++) {
                             textQueries.push('UPPER(' + textFields[i] + ') like \'%' + preparedTextSearch + '%\'');
@@ -374,6 +374,13 @@
                 }
             });
 
+            $('#contractAgencyNameInput').on('keyup',function(e){
+                var key = e.which;
+                if ( key == 13 && $(this).val() ) {
+                    searchResultsTable.api().ajax.reload();
+                    return false;
+                }
+            });
 
 
         }
