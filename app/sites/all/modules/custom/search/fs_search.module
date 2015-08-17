@@ -1,7 +1,6 @@
 <?php
 
 function fs_search_init() {
-    drupal_add_library('fs_search', 'datatables');
     drupal_add_library('fs_search', 'fs_search');
 }
 
@@ -65,6 +64,28 @@ function fs_search_theme($existing, $type, $theme, $path) {
 function fs_search_library() {
     $libraries = array();
 
+    $libraries['fs_search'] = array(
+        'title'   => 'FedSpending Search',
+        'version' => '1.0.0',
+        'js' => array(
+            drupal_get_path('module', 'fs_search').'/js/fs/FS.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs_search').'/js/fs/Class.js' => array('weight' => 101),
+            drupal_get_path('module', 'fs_search').'/js/util/DateFormat.js' => array('weight' => 102),
+            drupal_get_path('module', 'fs_search').'/js/util/StringFormat.js' => array('weight' => 103),
+            drupal_get_path('module', 'fs_search').'/js/util/NumberFormat.js' => array('weight' => 104),
+            drupal_get_path('module', 'fs_search').'/js/util/UriHandler.js' => array('weight' => 105),
+            drupal_get_path('module', 'fs_search').'/js/app.js' => array('weight' => 200,'scope' => 'footer', 'group' => JS_THEME)
+        ),
+        'css' => array (
+            drupal_get_path('module', 'fs_search').'/css/data.css' => array('weight' => 0)
+        ),
+        'dependencies' => array(
+            array('system','jquery'),
+            array('fs_search','datatables'),
+            array('fs_search','nvd3')
+        )
+    );
+
     $libraries['datatables'] = array(
         'title'   => 'DataTables',
         'website' => 'http://www.datatables.net',
@@ -81,23 +102,27 @@ function fs_search_library() {
         )
     );
 
-    $libraries['fs_search'] = array(
-        'title'   => 'FedSpending Search',
-        'version' => '1.0.0',
+    $libraries['d3'] = array(
+        'title'   => 'D3',
+        'website' => 'http://d3js.org',
+        'version' => '3.5.6',
         'js' => array(
-            drupal_get_path('module', 'fs_search').'/js/fs/FS.js' => array('weight' => 100),
-            drupal_get_path('module', 'fs_search').'/js/fs/Class.js' => array('weight' => 101),
-            drupal_get_path('module', 'fs_search').'/js/util/DateFormat.js' => array('weight' => 102),
-            drupal_get_path('module', 'fs_search').'/js/util/StringFormat.js' => array('weight' => 103),
-            drupal_get_path('module', 'fs_search').'/js/util/NumberFormat.js' => array('weight' => 104),
-            drupal_get_path('module', 'fs_search').'/js/util/UriHandler.js' => array('weight' => 105),
-            drupal_get_path('module', 'fs_search').'/js/app.js' => array('weight' => 200,'scope' => 'footer', 'group' => JS_THEME)
+            'sites/all/libraries/d3/d3.min.js' => array('weight' => 0)
+        )
+    );
+
+    $libraries['nvd3'] = array(
+        'title'   => 'NVD3',
+        'website' => 'http://nvd3.org',
+        'version' => '1.8.1',
+        'js' => array(
+            'sites/all/libraries/nvd3/nv.d3.min.js' => array('weight' => 0)
         ),
         'css' => array (
-            drupal_get_path('module', 'fs_search').'/css/data.css' => array('weight' => 0),
+            'sites/all/libraries/nvd3/nv.d3.min.css' => array('weight' => 0)
         ),
         'dependencies' => array(
-            array('system','jquery')
+            array('fs_search','d3')
         )
     );
 
