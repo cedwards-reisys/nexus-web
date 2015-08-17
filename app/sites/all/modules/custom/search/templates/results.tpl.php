@@ -191,13 +191,13 @@
             <h4>Top Award Amounts</h4>
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Agencies</h5>
+                    <h5>Contracting Agencies</h5>
                     <div id="barChartAgency">
                         <svg></svg>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h5>Vendors</h5>
+                    <h5>Recipients</h5>
                     <div id="barChartVendor">
                         <svg></svg>
                     </div>
