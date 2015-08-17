@@ -15,7 +15,8 @@
     }
 
     var FS = {
-        Util: {}
+        Util: {},
+        Visualization: {}
     };
 
     // add to global space

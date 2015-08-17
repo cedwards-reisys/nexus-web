@@ -32,3 +32,16 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+text {
+    font: 12px sans-serif;
+}
+svg {
+    display: block;
+}
+#searchBarChartWrapper svg {
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    width: 100%;
+}

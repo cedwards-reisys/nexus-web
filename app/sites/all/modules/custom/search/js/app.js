@@ -15,33 +15,6 @@
 
         },
 
-        getAwardTypes: function () {
-            return [
-                'A: BPA CALL',
-                'A: GWAC',
-                'B: IDC',
-                'BOA Basic Ordering Agreement',
-                'BPA Blanket Purchase Agreement',
-                'BPA Call Blanket Purchase Agreement',
-                'B: PURCHASE ORDER',
-                'C: DELIVERY ORDER',
-                'C: FSS',
-                'D: BOA',
-                'DCA Definitive Contract',
-                'D: DEFINITIVE CONTRACT',
-                'DO Delivery Order',
-                'E: BPA',
-                'F: COOPERATIVE AGREEMENT',
-                'FSS Federal Supply Schedule"',
-                'G: GRANT FOR RESEARCH',
-                'GWAC Government Wide Acquisition Contract',
-                'IDC Indefinite Delivery Contract',
-                'PO Purchase Order',
-                'S: FUNDED SPACE ACT AGREEMENT',
-                'T: TRAINING GRANT'
-            ];
-        },
-
         run: function() {
             var _this = this;
             var Uri = new FS.Util.UriHandler();
@@ -90,10 +63,6 @@
                         }
                     },
                     {
-                        data: 'contractactiontype',
-                        name: 'contractactiontype'
-                    },
-                    {
                         data: 'agencyid',
                         name: 'agencyid'
                     },
@@ -107,7 +76,7 @@
                 },
                 fnServerData: function  ( sSource, aoData, fnCallback, oSettings ) {
                     var page = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength);
-                    var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','contractactiontype','agencyid','fundingrequestingagencyid'];
+                    var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','agencyid','fundingrequestingagencyid'];
                     var order = columnNames[oSettings.aaSorting[0][0]+1] + ' ' + oSettings.aaSorting[0][1];
 
                     var query = {
@@ -182,26 +151,7 @@
                         query['$where'] += 'UPPER(agencyid) = \''+contractAgencyNameSearch.toUpperCase()+'\' ';
                     }
 
-                    // Award Type Input
-                    var awardTypeSearch = $('#awardTypeInput').find('input:checked');
-                    if ( awardTypeSearch ) {
-                        var types = [];
-                        $.each(awardTypeSearch,function(k,item){
-                            types.push('contractactiontype = \''+$(item).val()+'\'');
-                        });
-
-                        if ( types.length ) {
-
-                            if (typeof query['$where'] === 'undefined') {
-                                query['$where'] = '';
-                            } else {
-                                query['$where'] += ' AND ';
-                            }
-
-                            query['$where'] += '('+types.join(' OR ')+')';
-                        }
-                    }
-
+                    _this.query = query;
 
                     $('#searchTransactionCount').find('dd').html('<div class="dataFetching"></div>');
                     $('#searchContractCount').find('dd').html('<div class="dataFetching"></div>');
@@ -320,29 +270,6 @@
                 }
             });
 
-            function initAwardTypeForm() {
-                var awardTypes = FS.SearchApp.getAwardTypes();
-                var html = '';
-                for ( var i = 0, len=awardTypes.length; i < len; i++ ) {
-                    html += '<div class="checkbox input-sm">';
-                    html += '  <label>';
-                    html += '    <input type="checkbox" value="'+awardTypes[i]+'">';
-                    html += '    '+awardTypes[i];
-                    html += '  </label>';
-                    html += '</div>';
-                }
-
-                var checkboxes = $(html);
-                checkboxes.find('input[type=checkbox]').on('click',function(){
-                    searchResultsTable.api().ajax.reload();
-                });
-
-                $('#awardTypeInput').append(checkboxes);
-
-            }
-            initAwardTypeForm();
-
-
             $('#awardIdInput').on('keyup',function(e){
                 var key = e.which;
                 if ( key == 13 && $(this).val() ) {
@@ -382,6 +309,126 @@
                 }
             });
 
+
+            var agencyBarChart = new FS.Visualization.BarChart({
+                container: '#barChartAgency svg',
+                api_host: this.API_HOST,
+                query: {
+                    '$select': 'agencyid AS x, SUM(dollarsobligated) AS y',
+                    '$group': 'x',
+                    '$order': 'y DESC',
+                    '$limit': 10
+                },
+                doneCallback: function() {
+
+                },
+                failCallback: function() {
+
+                }
+            });
+
+            if ( _this.query['$where'] ) {
+                agencyBarChart.setSearchQuery(_this.query['$where']);
+            }
+
+            var vendorBarChart = new FS.Visualization.BarChart({
+                container: '#barChartVendor svg',
+                api_host: this.API_HOST,
+                query: {
+                    '$select': 'vendorname AS x, SUM(dollarsobligated) AS y',
+                    '$group': 'x',
+                    '$order': 'y DESC',
+                    '$limit': 10
+                },
+                doneCallback: function() {
+
+                },
+                failCallback: function() {
+
+                }
+            });
+
+            if ( _this.query['$where'] ) {
+                vendorBarChart.setSearchQuery(_this.query['$where']);
+            }
+
+            var productBarChart = new FS.Visualization.BarChart({
+                container: '#barChartProduct svg',
+                api_host: this.API_HOST,
+                query: {
+                    '$select': 'psc_cat AS x, SUM(dollarsobligated) AS y',
+                    '$group': 'x',
+                    '$order': 'y DESC',
+                    '$limit': 10
+                },
+                doneCallback: function() {
+
+                },
+                failCallback: function() {
+
+                }
+            });
+
+            if ( _this.query['$where'] ) {
+                productBarChart.setSearchQuery(_this.query['$where']);
+            }
+
+            var naisBarChart = new FS.Visualization.BarChart({
+                container: '#barChartNais svg',
+                api_host: this.API_HOST,
+                query: {
+                    '$select': 'principalnaicscode AS x, SUM(dollarsobligated) AS y',
+                    '$group': 'x',
+                    '$order': 'y DESC',
+                    '$limit': 10
+                },
+                doneCallback: function() {
+
+                },
+                failCallback: function() {
+
+                }
+            });
+
+            if ( _this.query['$where'] ) {
+                naisBarChart.setSearchQuery(_this.query['$where']);
+            }
+
+            var dataPanels = {
+                grid: {
+                    wrapper: $('#searchTableWrapper'),
+                    render: function() {
+                        searchResultsTable.api().ajax.reload();
+                    }
+                },
+                bar: {
+                    wrapper: $('#searchBarChartWrapper'),
+                    render: function () {
+                        agencyBarChart.render();
+                        vendorBarChart.render();
+                        productBarChart.render();
+                        naisBarChart.render();
+                    }
+                }
+            };
+
+            $('.dataViewButtons').find('button').on('click',function(){
+
+                $('.dataViewButtons').find('button').removeClass('btn-primary active').addClass('btn-default');
+                $(this).addClass('btn-primary active');
+
+                var selectedPanel = $(this).data('panel');
+
+                $.each(dataPanels,function(k,panel){
+                    if ( k === selectedPanel ) {
+                        panel.wrapper.show();
+                        panel.render();
+                    } else {
+                        panel.wrapper.hide();
+                    }
+                });
+
+            });
 
         }
 

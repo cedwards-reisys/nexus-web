@@ -74,6 +74,9 @@ function fs_search_library() {
             drupal_get_path('module', 'fs_search').'/js/util/StringFormat.js' => array('weight' => 103),
             drupal_get_path('module', 'fs_search').'/js/util/NumberFormat.js' => array('weight' => 104),
             drupal_get_path('module', 'fs_search').'/js/util/UriHandler.js' => array('weight' => 105),
+
+            drupal_get_path('module', 'fs_search').'/js/components/BarChart.js' => array('weight' => 110),
+
             drupal_get_path('module', 'fs_search').'/js/app.js' => array('weight' => 200,'scope' => 'footer', 'group' => JS_THEME)
         ),
         'css' => array (
@@ -107,7 +110,7 @@ function fs_search_library() {
         'website' => 'http://d3js.org',
         'version' => '3.5.6',
         'js' => array(
-            'sites/all/libraries/d3/d3.min.js' => array('weight' => 0)
+            'sites/all/libraries/d3/d3.js' => array('weight' => 0)
         )
     );
 
@@ -116,7 +119,7 @@ function fs_search_library() {
         'website' => 'http://nvd3.org',
         'version' => '1.8.1',
         'js' => array(
-            'sites/all/libraries/nvd3/nv.d3.min.js' => array('weight' => 0)
+            'sites/all/libraries/nvd3/nv.d3.js' => array('weight' => 0)
         ),
         'css' => array (
             'sites/all/libraries/nvd3/nv.d3.min.css' => array('weight' => 0)

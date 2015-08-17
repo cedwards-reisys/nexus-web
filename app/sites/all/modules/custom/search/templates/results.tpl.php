@@ -173,7 +173,6 @@
         </div>
 
         <div id="searchTableWrapper">
-
             <table id="searchResults" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                 <tr>
@@ -181,21 +180,52 @@
                     <th>Award ID</th>
                     <th>Award Amount</th>
                     <th>Award Date</th>
-                    <th>Transaction Type</th>
                     <th>Contracting Agency</th>
                     <th>Funding Agency</th>
                 </tr>
                 </thead>
             </table>
+        </div>
+
+        <div id="searchBarChartWrapper" style="display: none;">
+            <h4>Top Award Amounts</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Agencies</h5>
+                    <div id="barChartAgency">
+                        <svg></svg>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Vendors</h5>
+                    <div id="barChartVendor">
+                        <svg></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Products</h5>
+                    <div id="barChartProduct">
+                        <svg></svg>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>NAIS</h5>
+                    <div id="barChartNais">
+                        <svg></svg>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
     </div>
 
     <div class="col-md-1 dataViewButtons">
-        <div><button class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
-        <div><button class="btn btn-default" disabled="disabled"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
-        <div><button class="btn btn-default" disabled="disabled"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
+        <div><button data-panel="grid" class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
+        <div><button data-panel="bar" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
+        <div><button data-panel="map" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
     </div>
 
 </div>
