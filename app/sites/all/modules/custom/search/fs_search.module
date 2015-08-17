@@ -85,7 +85,8 @@ function fs_search_library() {
         'dependencies' => array(
             array('system','jquery'),
             array('fs_search','datatables'),
-            array('fs_search','nvd3')
+            array('fs_search','nvd3'),
+            array('fs_search','d3-geomap')
         )
     );
 
@@ -123,6 +124,22 @@ function fs_search_library() {
         ),
         'css' => array (
             'sites/all/libraries/nvd3/nv.d3.min.css' => array('weight' => 0)
+        ),
+        'dependencies' => array(
+            array('fs_search','d3')
+        )
+    );
+
+    $libraries['d3-geomap'] = array(
+        'title'   => 'd3-geomap',
+        'website' => 'http://d3-geomap.github.io',
+        'version' => '1.0.1',
+        'js' => array(
+            'sites/all/libraries/d3-geomap/js/d3.geomap.min.js' => array('weight' => 0),
+            'sites/all/libraries/d3-geomap/vendor/d3.geomap.dependencies.min.js' => array('weight' => 1)
+        ),
+        'css' => array (
+            'sites/all/libraries/d3-geomap/css/d3.geomap.css' => array('weight' => 0)
         ),
         'dependencies' => array(
             array('fs_search','d3')
