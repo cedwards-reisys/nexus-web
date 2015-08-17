@@ -309,7 +309,6 @@
                 }
             });
 
-
             var agencyBarChart = new FS.Visualization.BarChart({
                 container: '#barChartAgency svg',
                 api_host: this.API_HOST,
@@ -326,10 +325,6 @@
 
                 }
             });
-
-            if ( _this.query['$where'] ) {
-                agencyBarChart.setSearchQuery(_this.query['$where']);
-            }
 
             var vendorBarChart = new FS.Visualization.BarChart({
                 container: '#barChartVendor svg',
@@ -348,10 +343,6 @@
                 }
             });
 
-            if ( _this.query['$where'] ) {
-                vendorBarChart.setSearchQuery(_this.query['$where']);
-            }
-
             var productBarChart = new FS.Visualization.BarChart({
                 container: '#barChartProduct svg',
                 api_host: this.API_HOST,
@@ -368,10 +359,6 @@
 
                 }
             });
-
-            if ( _this.query['$where'] ) {
-                productBarChart.setSearchQuery(_this.query['$where']);
-            }
 
             var naisBarChart = new FS.Visualization.BarChart({
                 container: '#barChartNais svg',
@@ -390,10 +377,6 @@
                 }
             });
 
-            if ( _this.query['$where'] ) {
-                naisBarChart.setSearchQuery(_this.query['$where']);
-            }
-
             var dataPanels = {
                 grid: {
                     wrapper: $('#searchTableWrapper'),
@@ -404,6 +387,12 @@
                 bar: {
                     wrapper: $('#searchBarChartWrapper'),
                     render: function () {
+                        if ( _this.query['$where'] ) {
+                            agencyBarChart.setSearchQuery(_this.query['$where']);
+                            vendorBarChart.setSearchQuery(_this.query['$where']);
+                            productBarChart.setSearchQuery(_this.query['$where']);
+                            naisBarChart.setSearchQuery(_this.query['$where']);
+                        }
                         agencyBarChart.render();
                         vendorBarChart.render();
                         productBarChart.render();
