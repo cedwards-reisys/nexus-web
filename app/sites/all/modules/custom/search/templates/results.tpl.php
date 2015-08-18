@@ -220,6 +220,20 @@
 
         </div>
 
+        <div id="searchMapWrapper" style="display: none;">
+            <h4>Top Award Amounts</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Recipient Location</h5>
+                    <div id="mapUsVendor"></div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Place of Performance</h5>
+                    <div id="mapUsPop"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="col-md-1 dataViewButtons">

@@ -76,6 +76,7 @@ function fs_search_library() {
             drupal_get_path('module', 'fs_search').'/js/util/UriHandler.js' => array('weight' => 105),
 
             drupal_get_path('module', 'fs_search').'/js/components/BarChart.js' => array('weight' => 110),
+            drupal_get_path('module', 'fs_search').'/js/components/Choropleth.js' => array('weight' => 110),
 
             drupal_get_path('module', 'fs_search').'/js/app.js' => array('weight' => 200,'scope' => 'footer', 'group' => JS_THEME)
         ),
@@ -86,7 +87,7 @@ function fs_search_library() {
             array('system','jquery'),
             array('fs_search','datatables'),
             array('fs_search','nvd3'),
-            array('fs_search','d3-geomap')
+            array('fs_search','datamaps')
         )
     );
 
@@ -130,19 +131,34 @@ function fs_search_library() {
         )
     );
 
-    $libraries['d3-geomap'] = array(
-        'title'   => 'd3-geomap',
-        'website' => 'http://d3-geomap.github.io',
-        'version' => '1.0.1',
+    $libraries['datamaps'] = array(
+        'title'   => 'datamaps',
+        'website' => 'http://datamaps.github.io',
+        'version' => '0.4.0',
         'js' => array(
-            'sites/all/libraries/d3-geomap/js/d3.geomap.min.js' => array('weight' => 0),
-            'sites/all/libraries/d3-geomap/vendor/d3.geomap.dependencies.min.js' => array('weight' => 1)
-        ),
-        'css' => array (
-            'sites/all/libraries/d3-geomap/css/d3.geomap.css' => array('weight' => 0)
+            'sites/all/libraries/datamaps/datamaps.usa.js' => array('weight' => 0)
         ),
         'dependencies' => array(
-            array('fs_search','d3')
+            array('fs_search','topojson'),
+            array('fs_search','colorbrewer')
+        )
+    );
+
+    $libraries['topojson'] = array(
+        'title'   => 'topojson',
+        'website' => 'https://github.com/mbostock/topojson',
+        'version' => '1.6.19',
+        'js' => array(
+            'sites/all/libraries/topojson/topojson.min.js' => array('weight' => 0)
+        )
+    );
+
+    $libraries['colorbrewer'] = array(
+        'title'   => 'colorbrewer',
+        'website' => 'https://github.com/mbostock/d3/tree/master/lib/colorbrewer',
+        'version' => '1.0.0',
+        'js' => array(
+            'sites/all/libraries/colorbrewer/colorbrewer.js' => array('weight' => 0)
         )
     );
 

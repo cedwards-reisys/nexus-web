@@ -347,7 +347,7 @@
                 container: '#barChartProduct svg',
                 api_host: this.API_HOST,
                 query: {
-                    '$select': 'psc_cat AS x, SUM(dollarsobligated) AS y',
+                    '$select': 'productorservicecode AS x, SUM(dollarsobligated) AS y',
                     '$group': 'x',
                     '$order': 'y DESC',
                     '$limit': 10
@@ -377,6 +377,39 @@
                 }
             });
 
+            var vendorUsMap = new FS.Visualization.Choropleth({
+                container: 'mapUsVendor',
+                api_host: this.API_HOST,
+                query: {
+                    '$select': 'vendor_state_code AS x, SUM(dollarsobligated) AS y',
+                    '$group': 'x',
+                    '$where': '(vendor_state_code IS NOT NULL AND vendorcountrycode = \'UNITED STATES\')'
+                },
+                doneCallback: function() {
+
+                },
+                failCallback: function() {
+
+                }
+            });
+
+            var popUsMap = new FS.Visualization.Choropleth({
+                container: 'mapUsPop',
+                api_host: this.API_HOST,
+                query: {
+                    '$select': 'pop_state_code AS x, SUM(dollarsobligated) AS y',
+                    '$group': 'x',
+                    '$where': '(pop_state_code IS NOT NULL AND pop_state_code != \': \' AND placeofperformancecountrycode = \'USA: UNITED STATES\')'
+                },
+                doneCallback: function() {
+
+                },
+                failCallback: function() {
+
+                }
+            });
+
+
             var dataPanels = {
                 grid: {
                     wrapper: $('#searchTableWrapper'),
@@ -397,6 +430,13 @@
                         vendorBarChart.render();
                         productBarChart.render();
                         naisBarChart.render();
+                    }
+                },
+                map: {
+                    wrapper: $('#searchMapWrapper'),
+                    render: function () {
+                        vendorUsMap.setSearchQuery(_this.query['$where']).render();
+                        popUsMap.setSearchQuery(_this.query['$where']).render();
                     }
                 }
             };
