@@ -1,5 +1,7 @@
 # nexus-web
 
+auto deploy working...
+
 ## Site Setup
 
 1) clone repository
