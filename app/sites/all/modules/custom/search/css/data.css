@@ -84,3 +84,21 @@ svg {
     font-size: x-small;
     margin-bottom: 20px;
 }
+
+#timeSeriesAmount .area {
+    fill: steelblue;
+    clip-path: url(#clip);
+}
+
+#timeSeriesAmount .axis path,
+#timeSeriesAmount .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+#timeSeriesAmount .brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}

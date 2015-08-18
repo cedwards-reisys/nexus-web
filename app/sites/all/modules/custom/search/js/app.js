@@ -409,6 +409,23 @@
                 }
             });
 
+            var amountTimeSeries = new FS.Visualization.TimeSeries({
+                container: '#timeSeriesAmount svg',
+                api_host: this.API_HOST,
+                query: {
+                    '$select': 'sum(dollarsobligated) AS amount, date_trunc_ym(signeddate) AS date',
+                    '$group': 'date',
+                    '$where': 'signeddate IS NOT NULL',
+                    '$order': 'date ASC'
+                },
+                doneCallback: function() {
+
+                },
+                failCallback: function() {
+
+                }
+            });
+
 
             var dataPanels = {
                 grid: {
@@ -437,6 +454,12 @@
                     render: function () {
                         vendorUsMap.setSearchQuery(_this.query['$where']).render();
                         popUsMap.setSearchQuery(_this.query['$where']).render();
+                    }
+                },
+                time: {
+                    wrapper: $('#searchTimeWrapper'),
+                    render: function () {
+                        amountTimeSeries.setSearchQuery(_this.query['$where']).render();
                     }
                 }
             };

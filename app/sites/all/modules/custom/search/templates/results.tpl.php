@@ -219,12 +219,22 @@
             </div>
         </div>
 
+        <div id="searchTimeWrapper" style="display: none;">
+            <h4>Award Amounts Per Month</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="timeSeriesAmount"><svg></svg></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="col-md-1 dataViewButtons">
         <div><button data-panel="grid" class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
         <div><button data-panel="bar" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
         <div><button data-panel="map" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
+        <div><button data-panel="time" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-time"></span></button></div>
     </div>
 
 </div>
