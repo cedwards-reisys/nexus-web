@@ -3,15 +3,6 @@ os: linux
 files:
   - source: /
     destination: /opt/nexus-web
-permissions:
-  - object: /opt/nexus-web/app
-    pattern: "**"
-    except: [/opt/nexus-web/app/sites/default/files]
-    mode: 755
-  - object: /opt/nexus-web/app/sites/default/files
-    pattern: "**"
-    mode: 775
-    group: apache
 hooks:
    AfterInstall:
    - location: script/post-deployment.sh
