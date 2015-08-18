@@ -5,5 +5,5 @@ files:
     destination: /opt/nexus-web
 hooks:
    AfterInstall:
-   - location: script/post-deployment.sh
+   - location: scripts/post-deployment.sh
      runas: root
