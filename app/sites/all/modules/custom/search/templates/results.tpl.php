@@ -1,49 +1,44 @@
-
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="input-group" id="searchInputKeywords">
-            <input type="text" class="form-control " placeholder="Start typing here to find agencies, vendors, and more...">
-            <span class="input-group-btn"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="sr-only">Search</span></button></span>
-        </div>
-    </div>
+<div class="col-md-3 input-group" id="searchInputKeywords">
+    <input type="text" class="form-control " placeholder="Search by keywords...">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <span class="sr-only">Search</span>
+        </button>
+    </span>
 </div>
 
-<h3>Keywords: <span id="keywordsText"></span> </h3>
+<h5 id="searchKeywords"><span class="fontBold">Keywords:</span> <span id="keywordsText"></span></h5>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-        <h3>Summary</h3>
+<div id="resultsSummary" class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <dl id="searchTransactionSum">
-                    <dt>Total Amount</dt>
-                    <dd>0</dd>
+                    <dt style="font-weight:normal;">Total Amount</dt>
+                    <dd style="font-size:18px;font-weight:bold;">0</dd>
                 </dl>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <dl id="searchTransactionCount">
-                    <dt>Transactions</dt>
-                    <dd>0</dd>
+                    <dt style="font-weight:normal;">Transactions</dt>
+                    <dd style="font-size:18px;font-weight:bold;">0</dd>
                 </dl>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <dl id="searchContractCount">
-                    <dt>Contracts</dt>
-                    <dd>0</dd>
+                    <dt style="font-weight:normal;">Contracts</dt>
+                    <dd style="font-size:18px;font-weight:bold;">0</dd>
                 </dl>
             </div>
         </div>
-    </div>
 </div>
 
 <div class="row">
-
     <div class="col-md-2">
-        <h3>Filter</h3>
-
+        <h4 class="fontBold">Filter</h4>
         <div id="searchFilterPanel" class="panel-group" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
+                <div class="panel-heading filterHeader" role="tab" id="headingOne">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             Amount
@@ -69,7 +64,7 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
+                <div class="panel-heading filterHeader" role="tab" id="headingTwo">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             Award ID
@@ -83,7 +78,7 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
+                <div class="panel-heading filterHeader" role="tab" id="headingThree">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             Award Date
@@ -108,7 +103,7 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFour">
+                <div class="panel-heading filterHeader" role="tab" id="headingFour">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                             Recipient
@@ -122,7 +117,22 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingSix">
+                <div class="panel-heading filterHeader" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Transaction Type
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
+                        <form id="awardTypeInput">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading filterHeader" role="tab" id="headingSix">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                             Contracting Agency
@@ -135,15 +145,11 @@
                     </div>
                 </div>
             </div>
-            
-            
         </div>
-
-
     </div>
 
     <div class="col-md-9">
-        <h3>Results</h3>
+        <h4 class="fontBold">Results</h4>
 
         <div id="searchMessageWrapper">
             <div id="searchErrorMessage" class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
@@ -236,7 +242,6 @@
         <div><button data-panel="map" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
         <div><button data-panel="time" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-time"></span></button></div>
     </div>
-
 </div>
 
 

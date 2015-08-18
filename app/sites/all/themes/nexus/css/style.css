@@ -1,5 +1,74 @@
+body {
+	background-color: #FEFFFE;
+	font-family: georgia, serif;
+}
+
+table.table-bordered.dataTable {
+	border-collapse: collapse !important;
+}
+
+table.dataTable {
+	margin-top: 0px !important;
+}
+
+#navbar {
+	background-color: #F2F1E9;
+}
+
+#searchInputKeywords {
+	position: absolute;
+	top: 0;
+	right: 15px;
+}
+
+#searchKeywords {
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+#resultsSummary {
+	padding: 30px 15px 15px;
+	margin: 0 0 15px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #F2F1E9;
+}
+
+#resultsSummary h4 {
+	margin-bottom: 20px;
+}
+
+#resultsSummary dt {
+	font-weight: normal;
+}
+
+#resultsSummary dd {
+	font-size: 21px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+#resultsSummary dl {
+	margin-bottom: 0;
+}
+
+#searchResultsVisualizeButtons {
+	margin-top: 40px;
+}
+
+#searchResults tr.odd td {
+	background-color: #F2F1E9 !important;
+}
+
+.filterHeader {
+	background-color: #F2F1E9 !important;
+}
 
 .main-container {
     margin-left: 15px;
     margin-right: 15px;
 }
+
+.fontBold {
+/*	font-weight: bold;
+*/}
