@@ -3,6 +3,12 @@ os: linux
 files:
   - source: /
     destination: /opt/nexus-web
+permissions:
+  - object: /opt/nexus-web/scripts
+    pattern: "**"
+    mode: 755
+    type:
+      - file
 hooks:
    AfterInstall:
    - location: scripts/post-deployment.sh
