@@ -29,6 +29,8 @@
         render: function() {
             var _this = this;
 
+            $('#'+this.options.container).empty();
+
             this.map = {};
 
             $.ajax({
