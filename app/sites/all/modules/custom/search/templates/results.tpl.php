@@ -34,8 +34,17 @@
 </div>
 
 <div class="row">
-    <div class="col-md-2">
-        <h4 class="fontBold">Filter</h4>
+
+    <div class="col-md-2" id="searchFilterSection">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="fontBold">Filters</h4>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-default btn-xs">Apply</button>
+                <button class="btn btn-default btn-xs">Clear</button>
+            </div>
+        </div>
         <div id="searchFilterPanel" class="panel-group" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
                 <div class="panel-heading filterHeader" role="tab" id="headingOne">
@@ -148,7 +157,8 @@
         </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9" id="searchResultSection">
+
         <h4 class="fontBold">Results</h4>
 
         <div id="searchMessageWrapper">
