@@ -15,7 +15,10 @@
         },
 
         setSearchQuery: function ( searchQuery ) {
-            this.query['$where'] = searchQuery;
+            if ( typeof searchQuery !== 'undefined' ) {
+                this.query['$where'] = searchQuery + ' AND ' + this.query['$where'];
+            }
+            return this;
         },
 
         render: function() {

@@ -78,6 +78,9 @@ function fs_search_library() {
             drupal_get_path('module', 'fs_search').'/js/util/NumberFormat.js' => array('weight' => 104),
             drupal_get_path('module', 'fs_search').'/js/util/UriHandler.js' => array('weight' => 105),
 
+            drupal_get_path('module', 'fs_search').'/js/components/DataGrid.js' => array('weight' => 110),
+            drupal_get_path('module', 'fs_search').'/js/components/TotalAmount.js' => array('weight' => 110),
+            drupal_get_path('module', 'fs_search').'/js/components/TotalTransactions.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/BarChart.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/Choropleth.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/TimeSeries.js' => array('weight' => 110),
