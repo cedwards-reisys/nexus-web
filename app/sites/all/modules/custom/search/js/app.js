@@ -240,7 +240,7 @@
             var awardAmountOperatorSearch = $('#awardAmountOperatorInput').val();
 
             if ( awardAmountSearch && awardAmountOperatorSearch ) {
-                if ( typeof query['$where'] === 'undefined' ) {
+                if ( typeof this.query['$where'] === 'undefined' ) {
                     this.query['$where'] = '';
                 } else {
                     this.query['$where'] += ' AND ';
@@ -251,7 +251,7 @@
             // Award Id Input
             var awardIdSearch = $('#awardIdInput').val();
             if ( awardIdSearch ) {
-                if ( typeof query['$where'] === 'undefined' ) {
+                if ( typeof this.query['$where'] === 'undefined' ) {
                     this.query['$where'] = '';
                 } else {
                     this.query['$where'] += ' AND ';
@@ -262,7 +262,7 @@
             // Recipient Name Input
             var recipientNameSearch = $('#recipientNameInput').val();
             if ( recipientNameSearch ) {
-                if ( typeof query['$where'] === 'undefined' ) {
+                if ( typeof this.query['$where'] === 'undefined' ) {
                     this.query['$where'] = '';
                 } else {
                     this.query['$where'] += ' AND ';
@@ -273,7 +273,7 @@
             // Contracting Agency Name Input
             var contractAgencyNameSearch = $('#contractAgencyNameInput').val();
             if ( contractAgencyNameSearch ) {
-                if ( typeof query['$where'] === 'undefined' ) {
+                if ( typeof this.query['$where'] === 'undefined' ) {
                     this.query['$where'] = '';
                 } else {
                     this.query['$where'] += ' AND ';
