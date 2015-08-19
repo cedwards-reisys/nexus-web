@@ -188,7 +188,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h5>Recipients</h5>
+                    <h5>Recipients/Sub-recipients</h5>
                     <div id="barChartVendor">
                         <svg></svg>
                     </div>
@@ -196,14 +196,14 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Products</h5>
+                    <h5>Product/Service Codes</h5>
                     <div id="barChartProduct">
                         <svg></svg>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h5>NAIS</h5>
-                    <div id="barChartNais">
+                    <h5>NAICS Codes</h5>
+                    <div id="barChartNaics">
                         <svg></svg>
                     </div>
                 </div>

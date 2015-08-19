@@ -360,8 +360,8 @@
                 }
             });
 
-            var naisBarChart = new FS.Visualization.BarChart({
-                container: '#barChartNais svg',
+            var naicsBarChart = new FS.Visualization.BarChart({
+                container: '#barChartNaics svg',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'principalnaicscode AS x, SUM(dollarsobligated) AS y',
@@ -441,12 +441,12 @@
                             agencyBarChart.setSearchQuery(_this.query['$where']);
                             vendorBarChart.setSearchQuery(_this.query['$where']);
                             productBarChart.setSearchQuery(_this.query['$where']);
-                            naisBarChart.setSearchQuery(_this.query['$where']);
+                            naicsBarChart.setSearchQuery(_this.query['$where']);
                         }
                         agencyBarChart.render();
                         vendorBarChart.render();
                         productBarChart.render();
-                        naisBarChart.render();
+                        naicsBarChart.render();
                     }
                 },
                 map: {
