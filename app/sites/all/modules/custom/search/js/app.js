@@ -12,6 +12,7 @@
             this.API_HOST = 'https://fedspending.demo.socrata.com/resource/nfu7-rhaq.json';
             this.ROWS_PER_PAGE = 20;
             this.query = {};
+            this.dataViewPanels = null;
         },
 
         run: function() {
@@ -173,6 +174,10 @@
             });
         },
 
+        getQuery: function() {
+            return this.query;
+        },
+
         getComponent: function( name ) {
             return this.components[name];
         },
@@ -184,7 +189,7 @@
                     grid: {
                         wrapper: $('#searchTableWrapper'),
                         render: function () {
-                            _this.getComponent('dataGrid').setSearchQuery(_this.query['$where']);
+                            _this.getComponent('dataGrid').setSearchQuery(_this.getQuery()['$where']);
                             if ( !_this.getComponent('dataGrid').getGrid() ) {
                                 _this.getComponent('dataGrid').render();
                             } else {
@@ -195,23 +200,23 @@
                     bar: {
                         wrapper: $('#searchBarChartWrapper'),
                         render: function () {
-                            _this.getComponent('agencyBarChart').setSearchQuery(_this.query['$where']).render();
-                            _this.getComponent('agencyBarChart').setSearchQuery(_this.query['$where']).render();
-                            _this.getComponent('productBarChart').setSearchQuery(_this.query['$where']).render();
-                            _this.getComponent('naicsBarChart').setSearchQuery(_this.query['$where']).render();
+                            _this.getComponent('agencyBarChart').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('agencyBarChart').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('productBarChart').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('naicsBarChart').setSearchQuery(_this.getQuery()['$where']).render();
                         }
                     },
                     map: {
                         wrapper: $('#searchMapWrapper'),
                         render: function () {
-                            _this.getComponent('vendorUsMap').setSearchQuery(_this.query['$where']).render();
-                            _this.getComponent('popUsMap').setSearchQuery(_this.query['$where']).render();
+                            _this.getComponent('vendorUsMap').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('popUsMap').setSearchQuery(_this.getQuery()['$where']).render();
                         }
                     },
                     time: {
                         wrapper: $('#searchTimeWrapper'),
                         render: function () {
-                            _this.getComponent('amountTimeSeries').setSearchQuery(_this.query['$where']).render();
+                            _this.getComponent('amountTimeSeries').setSearchQuery(_this.getQuery()['$where']).render();
                         }
                     }
                 };
@@ -285,14 +290,12 @@
 
         updateDataView: function() {
             this.applySearchFilters();
-
             var selectedPanel = $('.dataViewButtons').find('button.active').data('panel');
-            $.each(this.getDataViewPanels(),function(k,panel){
-                if ( panel === selectedPanel ) {
+            $.each(this.getDataViewPanels(),function(key,panel){
+                if ( key === selectedPanel ) {
                     panel.render();
                 }
             });
-
             this.getComponent('totalAmount').render();
             this.getComponent('totalTransactions').render();
         },

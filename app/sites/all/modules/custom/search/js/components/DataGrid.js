@@ -15,7 +15,7 @@
 
         setSearchQuery: function ( searchQuery ) {
             if ( typeof searchQuery !== 'undefined' ) {
-                this.query['$where'] = searchQuery + ' AND ' + this.query['$where'];
+                this.query['$where'] = searchQuery;
             }
             return this;
         },
