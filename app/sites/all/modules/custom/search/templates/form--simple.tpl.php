@@ -1,10 +1,11 @@
+<div id="homepageMainSection">
+    <div id="homepageHeadline" class="col-md-4 col-md-offset-2">
+        <h1>The Offical<br>Government Spending</br>for Federal Spending Data</h1>
+    </div>
 
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="input-group" id="searchInputKeywords">
-            <input type="text" class="form-control " placeholder="Start typing here to find agencies, vendors, and more...">
-            <span class="input-group-btn"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="sr-only">Search</span></button></span>
-        </div>
+    <div id="homepageSearch" class="input-group col-md-3 col-md-offset-6">
+        <input type="text" class="form-control" placeholder="Search by keywords...">
+        <span class="input-group-btn"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="sr-only">Search</span></button></span>
     </div>
 </div>
 
