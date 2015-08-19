@@ -1,7 +1,10 @@
 <?php
 
 function fs_search_init() {
-    drupal_add_library('fs_search', 'fs_search');
+
+    if ( 'search' === drupal_get_path_alias() ) {
+        drupal_add_library('fs_search', 'fs_search');
+    }
 }
 
 function fs_search_block_info() {
