@@ -30,6 +30,10 @@
 
             this.chart.tooltip.enabled(true);
 
+            this.chart.yAxis.tickFormat(function(d) {
+                return FS.Util.NumberFormat.getCurrency(d,0);
+            });
+
             var formatValue = d3.format('.3s');
             this.chart.valueFormat(function(d){
                 return formatValue(d).replace('G', 'B');
