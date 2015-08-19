@@ -453,7 +453,7 @@
                     wrapper: $('#searchMapWrapper'),
                     render: function () {
                         vendorUsMap.setSearchQuery(_this.query['$where']).render();
-                        //popUsMap.setSearchQuery(_this.query['$where']).render();
+                        popUsMap.setSearchQuery(_this.query['$where']).render();
                     }
                 },
                 time: {

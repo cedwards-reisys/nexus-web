@@ -65,6 +65,7 @@
                     width: 600,
                     fills: {defaultFill: '#ffffff'},
                     data: mapValues,
+                    responsive: true,
                     geographyConfig: {
                         borderWidth: 1,
                         borderColor: '#999999',
@@ -78,24 +79,23 @@
                 });
 
                 // build gradient
-                _this.buildGradient(colorbrewer['Blues'][_this.cLevels].reverse(), 'amountGradient');
+                _this.buildGradient(colorbrewer['Blues'][_this.cLevels].reverse(), _this.container + '_amountGradient');
 
                 // draw colorbar
                 var visWidth = document.getElementById(_this.container).offsetWidth/2;
 
-                var cbar = d3.select('.datamap').append('g')
+                var cbar = d3.select('#' + _this.container + ' .datamap').append('g')
                     .attr('id', 'colorBar')
                     .attr('class', 'colorbar');
 
                 cbar.append('rect')
-                    .attr('id', 'gradientRect')
+                    .attr('class', 'gradientRect')
                     .attr('width', _this.cbarWidth)
                     .attr('height', _this.cbarHeight)
                     .style('fill', 'url(#amountGradient)');
 
                 cbar.append('text')
-                    .attr('id', 'colorBarMinText')
-                    .attr('class', 'colorbar')
+                    .attr('class', 'colorbar colorBarMinText')
                     .attr('x', 0)
                     .attr('y', _this.cbarHeight + 15)
                     .attr('dx', 0)
@@ -103,8 +103,7 @@
                     .attr('text-anchor', 'start');
 
                 cbar.append('text')
-                    .attr('id', 'colorBarMaxText')
-                    .attr('class', 'colorbar')
+                    .attr('class', 'colorbar colorBarMaxText')
                     .attr('x', _this.cbarWidth)
                     .attr('y', _this.cbarHeight + 15)
                     .attr('dx', 0)
@@ -113,11 +112,11 @@
 
                 cbar.attr('transform', 'translate(' + (visWidth-_this.cbarWidth)/2.0 + ', 30)');  // Shift to center
 
-                d3.select('#gradientRect').style('fill', 'url(#amountGradient)');
-                d3.select('#colorBarMinText').text('0');
+                d3.select('#' + _this.container + ' .gradientRect').style('fill', 'url(#'+_this.container+'_amountGradient)');
+                d3.select('#' + _this.container + ' .colorBarMinText').text('0');
 
                 var formatValue = d3.format('.1s');
-                d3.select('#colorBarMaxText').text('Over '+ formatValue(d3.max(amounts)).replace('G', 'B'));
+                d3.select('#' + _this.container + ' .colorBarMaxText').text('Over '+ formatValue(d3.max(amounts)).replace('G', 'B'));
 
                 _this.map.updateChoropleth(colors);
 
@@ -147,7 +146,7 @@
 
         buildGradient: function(palette, gradientId) {
             var _this = this;
-            d3.select('.datamap')
+            d3.select('#' + this.container + ' .datamap')
                 .append('linearGradient')
                 .attr('id', gradientId)
                 .attr("gradientUnits", "userSpaceOnUse")
