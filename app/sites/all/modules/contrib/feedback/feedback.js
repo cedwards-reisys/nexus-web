@@ -7,17 +7,14 @@ Drupal.behaviors.feedbackForm = {
   attach: function (context) {
     $('#block-feedback-form', context).once('feedback', function () {
       var $block = $(this);
+      var $form  = $block.find('form');
       $block.find('span.feedback-link')
         .prepend('<span id="feedback-form-toggle">[ + ]</span> ')
         .css('cursor', 'pointer')
-        .toggle(function () {
-            Drupal.feedbackFormToggle($block, false);
-          },
-          function() {
-            Drupal.feedbackFormToggle($block, true);
-          }
-        );
-      $block.find('form').hide();
+        .on('click', function(){
+          Drupal.feedbackFormToggle($block, $form, $form.is(":visible") );
+        });
+      $form.hide();
       $block.show();
     });
   }
@@ -46,14 +43,9 @@ Drupal.behaviors.feedbackFormSubmit = {
 /**
  * Collapse or uncollapse the feedback form block.
  */
-Drupal.feedbackFormToggle = function ($block, enable) {
-  $block.find('form').slideToggle('medium');
-  if (enable) {
-    $('#feedback-form-toggle', $block).html('[ + ]');
-  }
-  else {
-    $('#feedback-form-toggle', $block).html('[ &minus; ]');
-  }
+Drupal.feedbackFormToggle = function ($block, $form, enable) {
+  $form.slideToggle('medium');
+  $('#feedback-form-toggle', $block).html(enable ? '[ + ]' : '[ &minus; ]');
 };
 
 })(jQuery);
