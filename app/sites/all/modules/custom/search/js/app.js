@@ -78,8 +78,8 @@
                 },
                 ROWS_PER_PAGE: _this.ROWS_PER_PAGE,
                 doneCallback: function() {
-                    _this.components['totalAmount'].render();
-                    _this.components['totalTransactions'].render();
+                    _this.components['totalAmount'].setSearchQuery(_this.getQuery()['$where']).render();
+                    _this.components['totalTransactions'].setSearchQuery(_this.getQuery()['$where']).render();
                 },
                 failCallback: function() {}
             });
@@ -237,6 +237,13 @@
                 for ( var i= 0,len=textFields.length;i<len;i++) {
                     textQueries.push('UPPER(' + textFields[i] + ') like \'%' + preparedTextSearch + '%\'');
                 }
+
+                if ( typeof this.query['$where'] === 'undefined' ) {
+                    this.query['$where'] = '';
+                } else {
+                    this.query['$where'] += ' AND ';
+                }
+
                 this.query['$where'] = '(' + textQueries.join(' OR ') + ') ';
             }
 
