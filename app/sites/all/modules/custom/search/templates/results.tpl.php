@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-3">
                     <dl id="searchTransactionCount">
-                        <dt style="font-weight:normal;">Transactions</dt>
+                        <dt style="font-weight:normal;">Contracts</dt>
                         <dd style="font-size:21px;font-weight:bold;">0</dd>
                     </dl>
                 </div>
