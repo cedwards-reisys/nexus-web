@@ -26,12 +26,6 @@
                         <dd style="font-size:21px;font-weight:bold;">0</dd>
                     </dl>
                 </div>
-                <div class="col-md-3">
-                    <dl id="searchContractCount">
-                        <dt style="font-weight:normal;">Contracts</dt>
-                        <dd style="font-size:21px;font-weight:bold;">0</dd>
-                    </dl>
-                </div>
             </div>
         </div>
     </div>
