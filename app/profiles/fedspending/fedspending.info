@@ -32,6 +32,10 @@ dependencies[] = uuid
 dependencies[] = features
 dependencies[] = uuid_features
 
+
+dependencies[] = fs
 dependencies[] = fs_search
-dependencies[] = fs_search_features
+dependencies[] = fs_search_feature
+dependencies[] = fs_visualiation_gallery_feature
+
 

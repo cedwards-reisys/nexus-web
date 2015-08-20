@@ -1,0 +1,27 @@
+<?php
+
+function fs_init() {
+    drupal_add_library('fs', 'fs');
+}
+
+function fs_library() {
+    $libraries = array();
+
+    $libraries['fs'] = array(
+        'title'   => 'FedSpending',
+        'version' => '1.0.0',
+        'js' => array(
+            drupal_get_path('module', 'fs').'/js/FS.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs').'/js/Class.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs').'/js/util/UriHandler.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs').'/js/util/DateFormat.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs').'/js/util/StringFormat.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs').'/js/util/NumberFormat.js' => array('weight' => 100),
+        ),
+        'dependencies' => array(
+            array('system','jquery')
+        )
+    );
+
+    return $libraries;
+}

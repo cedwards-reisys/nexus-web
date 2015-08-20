@@ -1,6 +1,6 @@
 <h1>The Offical Government Spending for Federal Spending Data</h1>
 
-<div class="homepage-search row">
+<div id="searchInputKeywords" class="homepage-search row">
     <div class="col-md-4 col-md-offset-4">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search by keywords...">

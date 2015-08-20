@@ -14,10 +14,6 @@ function fs_search_block_info() {
         'info' => t('FedSpending Search Simple Form')
     );
 
-    $blocks['fs_search_advanced_form'] = array(
-        'info' => t('FedSpending Search Advanced Form')
-    );
-
     $blocks['fs_search_results'] = array(
         'info' => t('FedSpending Search Results')
     );
@@ -34,11 +30,6 @@ function fs_search_block_view($delta = '') {
             $block['content'] = theme('fs_search_simple_form');
             break;
 
-        case 'fs_search_advanced_form':
-            $block['subject'] = NULL;
-            $block['content'] = theme('fs_search_advanced_form');
-            break;
-
         case 'fs_search_results':
             $block['subject'] = NULL;
             $block['content'] = theme('fs_search_results');
@@ -51,10 +42,6 @@ function fs_search_theme($existing, $type, $theme, $path) {
     return array(
         'fs_search_simple_form' => array(
             'template' => 'form--simple',
-            'path' => drupal_get_path('module', 'fs_search') . '/templates',
-        ),
-        'fs_search_advanced_form' => array(
-            'template' => 'form--advanced',
             'path' => drupal_get_path('module', 'fs_search') . '/templates',
         ),
         'fs_search_results' => array(
@@ -71,13 +58,6 @@ function fs_search_library() {
         'title'   => 'FedSpending Search',
         'version' => '1.0.0',
         'js' => array(
-            drupal_get_path('module', 'fs_search').'/js/fs/FS.js' => array('weight' => 100),
-            drupal_get_path('module', 'fs_search').'/js/fs/Class.js' => array('weight' => 101),
-            drupal_get_path('module', 'fs_search').'/js/util/DateFormat.js' => array('weight' => 102),
-            drupal_get_path('module', 'fs_search').'/js/util/StringFormat.js' => array('weight' => 103),
-            drupal_get_path('module', 'fs_search').'/js/util/NumberFormat.js' => array('weight' => 104),
-            drupal_get_path('module', 'fs_search').'/js/util/UriHandler.js' => array('weight' => 105),
-
             drupal_get_path('module', 'fs_search').'/js/components/DataGrid.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/TotalAmount.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/TotalTransactions.js' => array('weight' => 110),
@@ -92,6 +72,7 @@ function fs_search_library() {
         ),
         'dependencies' => array(
             array('system','jquery'),
+            array('fs','fs'),
             array('fs_search','datatables'),
             array('fs_search','nvd3'),
             array('fs_search','datamaps')
