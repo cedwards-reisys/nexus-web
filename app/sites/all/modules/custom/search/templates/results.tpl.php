@@ -113,21 +113,6 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading filterHeader" role="tab" id="headingFive">
-                    <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            Transaction Type
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                    <div class="panel-body">
-                        <form id="awardTypeInput">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
                 <div class="panel-heading filterHeader" role="tab" id="headingSix">
                     <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#searchFilterPanel" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
