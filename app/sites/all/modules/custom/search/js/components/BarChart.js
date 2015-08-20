@@ -9,7 +9,6 @@
     var BarChart = FS.Class.extend({
 
         init: function (options) {
-            this.options = options;
             $.extend(this, options);
 
         },
@@ -59,28 +58,34 @@
                 dataType: 'json',
                 data: this.query
             }).done(function( data ) {
-                var chartValues = [];
-                for (var i = 0,len=data.length; i < len; i++) {
-                    chartValues.push({
-                        label: data[i].x,
-                        value: parseInt(data[i].y)
-                    });
+
+                if ( !data ) {
+
+                } else {
+                    var chartValues = [];
+                    for (var i = 0,len=data.length; i < len; i++) {
+                        chartValues.push({
+                            label: data[i].x,
+                            value: parseInt(data[i].y)
+                        });
+                    }
+
+                    var chartData = [{
+                        key: 'Sum',
+                        values: chartValues
+                    }];
+
+                    d3.select(_this.container)
+                        .datum(chartData)
+                        .transition()
+                        .duration(500)
+                        .call(_this.chart);
+
+                    if ( typeof _this.doneCallback === 'function' ) {
+                        _this.doneCallback();
+                    }
                 }
 
-                var chartData = [{
-                    key: 'Sum',
-                    values: chartValues
-                }];
-
-                d3.select(_this.options.container)
-                    .datum(chartData)
-                    .transition()
-                    .duration(500)
-                    .call(_this.chart);
-
-                if ( typeof _this.doneCallback === 'function' ) {
-                    _this.doneCallback();
-                }
 
             }).fail(function(){
                 if ( typeof _this.failCallback === 'function' ) {
