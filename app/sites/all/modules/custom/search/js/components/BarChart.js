@@ -1,23 +1,15 @@
 (function (global, $, nv, d3) {
 
     if (typeof global.FS === 'undefined') {
-        throw new Error('Util.DateFormat requires FS');
+        throw new Error('Visualization.BarChart requires FS');
     }
 
     var FS = global.FS;
 
-    var BarChart = FS.Class.extend({
+    var BarChart = FS.Visualization.Component.extend({
 
         init: function (options) {
-            $.extend(this, options);
-
-        },
-
-        setSearchQuery: function ( searchQuery ) {
-            if ( typeof searchQuery !== 'undefined' ) {
-                this.query['$where'] = searchQuery;
-            }
-            return this;
+            this._super(options);
         },
 
         render: function() {
@@ -56,7 +48,7 @@
                 url: this.api_host,
                 type: 'GET',
                 dataType: 'json',
-                data: this.query
+                data: this.getPreparedQuery()
             }).done(function( data ) {
 
                 if ( !data ) {

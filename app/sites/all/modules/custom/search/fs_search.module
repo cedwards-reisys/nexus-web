@@ -58,6 +58,7 @@ function fs_search_library() {
         'title'   => 'FedSpending Search',
         'version' => '1.0.0',
         'js' => array(
+            drupal_get_path('module', 'fs_search').'/js/components/Component.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/DataGrid.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/TotalAmount.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/TotalTransactions.js' => array('weight' => 110),

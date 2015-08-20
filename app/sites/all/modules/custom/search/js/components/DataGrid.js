@@ -1,23 +1,16 @@
 (function (global, $ ) {
 
     if (typeof global.FS === 'undefined') {
-        throw new Error('Util.DateFormat requires FS');
+        throw new Error('Visualization.DataGrid requires FS');
     }
 
     var FS = global.FS;
 
-    var DataGrid = FS.Class.extend({
+    var DataGrid = FS.Visualization.Component.extend({
 
         init: function (options) {
+            this._super(options);
             this.grid = null;
-            $.extend(this, options);
-        },
-
-        setSearchQuery: function ( searchQuery ) {
-            if ( typeof searchQuery !== 'undefined' ) {
-                this.query['$where'] = searchQuery;
-            }
-            return this;
         },
 
         getGrid: function() {
@@ -85,16 +78,11 @@
                     var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','agencyid','fundingrequestingagencyid'];
                     var order = columnNames[oSettings.aaSorting[0][0]+1] + ' ' + oSettings.aaSorting[0][1];
 
-                    var query = {
-                        '$select': columnNames.join(','),
-                        '$order': order,
-                        '$offset': page * _this.ROWS_PER_PAGE,
-                        '$limit': _this.ROWS_PER_PAGE
-                    };
-
-                    if ( _this.query['$where'] ) {
-                        query['$where'] = _this.query['$where'];
-                    }
+                    var query = _this.getPreparedQuery();
+                    query['$select'] = columnNames.join(',');
+                    query['$offset'] =  page * _this.ROWS_PER_PAGE;
+                    query['$limit'] = _this.ROWS_PER_PAGE;
+                    query['$order'] = order;
 
                     oSettings.jqXHR = $.ajax({
                         dataType: 'json',

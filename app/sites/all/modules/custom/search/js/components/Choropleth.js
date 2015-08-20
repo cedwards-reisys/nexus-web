@@ -1,28 +1,20 @@
 (function (global, $, nv, d3) {
 
     if (typeof global.FS === 'undefined') {
-        throw new Error('Util.DateFormat requires FS');
+        throw new Error('Visualization.Choropleth requires FS');
     }
 
     var FS = global.FS;
 
-    var Choropleth = FS.Class.extend({
+    var Choropleth = FS.Visualization.Component.extend({
 
         init: function (options) {
-            $.extend(this, options);
+            this._super(options);
 
             this.cLevels = 9;
             this.cellWidth = 30; // Width of color legend cell
             this.cbarWidth = this.cellWidth*this.cLevels;
             this.cbarHeight = 15;  // Height of color legend
-
-        },
-
-        setSearchQuery: function ( searchQuery ) {
-            if ( typeof searchQuery !== 'undefined' ) {
-                this.query['$where'] = searchQuery + ' AND ' + this.query['$where'];
-            }
-            return this;
         },
 
         render: function() {
@@ -36,7 +28,7 @@
                 url: this.api_host,
                 type: 'GET',
                 dataType: 'json',
-                data: this.query
+                data: this.getPreparedQuery()
             }).done(function( data ) {
 
                 var colorPalette = colorbrewer['Blues'][_this.cLevels];//.reverse();

@@ -24,8 +24,6 @@
             var Uri = new FS.Util.UriHandler();
             $('#searchInputKeywords').find('input').val(Uri.getParam('keywords'));
 
-            this.applySearchFilters();
-
             $('#dataViewButtons').find('button').on('click',function(){
 
                 $('#dataViewButtons').find('button').removeClass('btn-primary active').addClass('btn-default');
@@ -44,7 +42,7 @@
                 });
             });
 
-            this.getDataViewPanels()['grid'].render();
+            this.updateDataView();
         },
 
         registerComponents: function () {
@@ -77,10 +75,7 @@
                 query: {
                 },
                 ROWS_PER_PAGE: _this.ROWS_PER_PAGE,
-                doneCallback: function() {
-                    _this.components['totalAmount'].setSearchQuery(_this.getQuery()['$where']).render();
-                    _this.components['totalTransactions'].setSearchQuery(_this.getQuery()['$where']).render();
-                },
+                doneCallback: function() {},
                 failCallback: function() {}
             });
 
@@ -189,7 +184,7 @@
                     grid: {
                         wrapper: $('#searchTableWrapper'),
                         render: function () {
-                            _this.getComponent('dataGrid').setSearchQuery(_this.getQuery()['$where']);
+                            _this.getComponent('dataGrid').setFilter(_this.getQuery()['$where']);
                             if ( !_this.getComponent('dataGrid').getGrid() ) {
                                 _this.getComponent('dataGrid').render();
                             } else {
@@ -200,23 +195,23 @@
                     bar: {
                         wrapper: $('#searchBarChartWrapper'),
                         render: function () {
-                            _this.getComponent('agencyBarChart').setSearchQuery(_this.getQuery()['$where']).render();
-                            _this.getComponent('vendorBarChart').setSearchQuery(_this.getQuery()['$where']).render();
-                            _this.getComponent('productBarChart').setSearchQuery(_this.getQuery()['$where']).render();
-                            _this.getComponent('naicsBarChart').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('agencyBarChart').setFilter(_this.getQuery()['$where']).render();
+                            _this.getComponent('vendorBarChart').setFilter(_this.getQuery()['$where']).render();
+                            _this.getComponent('productBarChart').setFilter(_this.getQuery()['$where']).render();
+                            _this.getComponent('naicsBarChart').setFilter(_this.getQuery()['$where']).render();
                         }
                     },
                     map: {
                         wrapper: $('#searchMapWrapper'),
                         render: function () {
-                            _this.getComponent('vendorUsMap').setSearchQuery(_this.getQuery()['$where']).render();
-                            _this.getComponent('popUsMap').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('vendorUsMap').setFilter(_this.getQuery()['$where']).render();
+                            _this.getComponent('popUsMap').setFilter(_this.getQuery()['$where']).render();
                         }
                     },
                     time: {
                         wrapper: $('#searchTimeWrapper'),
                         render: function () {
-                            _this.getComponent('amountTimeSeries').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('amountTimeSeries').setFilter(_this.getQuery()['$where']).render();
                         }
                     }
                 };
@@ -225,8 +220,7 @@
         },
 
         applySearchFilters: function () {
-
-            delete this.query['$where'];
+            var filters = [];
 
             // Keyword Input
             var textSearch = $('#searchInputKeywords').find('input').val();
@@ -239,14 +233,7 @@
                 for ( var i= 0,len=textFields.length;i<len;i++) {
                     textQueries.push('UPPER(' + textFields[i] + ') like \'%' + preparedTextSearch + '%\'');
                 }
-
-                if ( typeof this.query['$where'] === 'undefined' ) {
-                    this.query['$where'] = '';
-                } else {
-                    this.query['$where'] += ' AND ';
-                }
-
-                this.query['$where'] = '(' + textQueries.join(' OR ') + ') ';
+                filters.push('(' + textQueries.join(' OR ') + ')');
             }
 
             // Award Amount
@@ -254,47 +241,32 @@
             var awardAmountOperatorSearch = $('#awardAmountOperatorInput').val();
 
             if ( awardAmountSearch && awardAmountOperatorSearch ) {
-                if ( typeof this.query['$where'] === 'undefined' ) {
-                    this.query['$where'] = '';
-                } else {
-                    this.query['$where'] += ' AND ';
-                }
-                this.query['$where'] += 'dollarsobligated ' + awardAmountOperatorSearch + ' ' + parseInt(awardAmountSearch) + ' ';
+                filters.push('dollarsobligated ' + awardAmountOperatorSearch + ' ' + parseInt(awardAmountSearch));
             }
 
             // Award Id Input
             var awardIdSearch = $('#awardIdInput').val();
             if ( awardIdSearch ) {
-                if ( typeof this.query['$where'] === 'undefined' ) {
-                    this.query['$where'] = '';
-                } else {
-                    this.query['$where'] += ' AND ';
-                }
-                this.query['$where'] += 'UPPER(piid) = \''+awardIdSearch.toUpperCase()+'\' ';
+                filters.push('UPPER(piid) = \''+awardIdSearch.toUpperCase()+'\'');
             }
 
             // Recipient Name Input
             var recipientNameSearch = $('#recipientNameInput').val();
             if ( recipientNameSearch ) {
-                if ( typeof this.query['$where'] === 'undefined' ) {
-                    this.query['$where'] = '';
-                } else {
-                    this.query['$where'] += ' AND ';
-                }
-                this.query['$where'] += 'UPPER(vendorname) = \''+recipientNameSearch.toUpperCase()+'\' ';
+                filters.push('UPPER(vendorname) = \''+recipientNameSearch.toUpperCase()+'\'');
             }
 
             // Contracting Agency Name Input
             var contractAgencyNameSearch = $('#contractAgencyNameInput').val();
             if ( contractAgencyNameSearch ) {
-                if ( typeof this.query['$where'] === 'undefined' ) {
-                    this.query['$where'] = '';
-                } else {
-                    this.query['$where'] += ' AND ';
-                }
-                this.query['$where'] += 'UPPER(agencyid) = \''+contractAgencyNameSearch.toUpperCase()+'\' ';
+                filters.push('UPPER(agencyid) = \''+contractAgencyNameSearch.toUpperCase()+'\'');
             }
 
+            if ( filters.length ) {
+                this.query['$where'] = filters.join(' AND ');
+            } else {
+                delete this.query['$where'];
+            }
         },
 
         updateDataView: function() {
@@ -305,8 +277,9 @@
                     panel.render();
                 }
             });
-            this.getComponent('totalAmount').render();
-            this.getComponent('totalTransactions').render();
+
+            this.getComponent('totalAmount').setFilter(this.getQuery()['$where']).render();
+            this.getComponent('totalTransactions').setFilter(this.getQuery()['$where']).render();
         },
 
         addFilterFormHandlers: function() {
@@ -334,7 +307,7 @@
 
             $('#recipientNameInput').on('keyup',function(e){
                 var key = e.which;
-                if ( key == 13 && $(this).val() ) {
+                if ( key == 13 ) {
                     _this.updateDataView();
                     return false;
                 }

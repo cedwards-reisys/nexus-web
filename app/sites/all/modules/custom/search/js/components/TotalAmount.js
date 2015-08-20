@@ -6,17 +6,10 @@
 
     var FS = global.FS;
 
-    var TotalAmount = FS.Class.extend({
+    var TotalAmount = FS.Visualization.Component.extend({
 
         init: function (options) {
-            $.extend(this, options);
-        },
-
-        setSearchQuery: function ( searchQuery ) {
-            if ( typeof searchQuery !== 'undefined' ) {
-                this.query['$where'] = searchQuery;
-            }
-            return this;
+            this._super(options);
         },
 
         render: function() {
@@ -28,7 +21,7 @@
                 url: this.api_host,
                 type: 'GET',
                 dataType: 'json',
-                data: this.query
+                data: this.getPreparedQuery()
             }).done(function( data ) {
 
                 $(_this.container).find('dd').html(FS.Util.NumberFormat.getCurrency(data[0].total,0));
