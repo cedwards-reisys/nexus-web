@@ -1,0 +1,14 @@
+name = FS Search Feature
+description = Exportable configs for FS Search
+core = 7.x
+package = FedSpending Features
+version = 7.x-1.0
+dependencies[] = block
+dependencies[] = context
+dependencies[] = fs_search
+dependencies[] = menu
+dependencies[] = path
+__drupal_alter_by_ref[][node][page] = page
+features[context][] = fs_search_results
+features[ctools][] = context:context:3
+features[features_api][] = api:2

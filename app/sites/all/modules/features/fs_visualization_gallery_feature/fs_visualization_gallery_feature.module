@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the FS Visualization Gallery feature.
+ * Code for the FS Visualization Gallery Feature feature.
  */
 
 include_once 'fs_visualization_gallery_feature.features.inc';

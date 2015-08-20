@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the FS Search Feature feature.
+ */
+
+include_once 'fs_search_feature.features.inc';
