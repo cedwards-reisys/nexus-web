@@ -26,4 +26,4 @@ regions[page_bottom]    = 'Page bottom'
 stylesheets[all][] = css/style.css
 
 stylesheets[all][] = css/home.css
-stylesheets[all][] = css/gallerye.css
+stylesheets[all][] = css/gallery.css
