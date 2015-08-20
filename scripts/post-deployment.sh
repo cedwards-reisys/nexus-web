@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if [ ! -L /opt/nexus-web/app/sites/default/files ]; then
   ln -s /opt/nexus-web-storage/files /opt/nexus-web/app/sites/default/files
@@ -9,4 +9,5 @@ if [ ! -L /opt/nexus-web/app/sites/default/settings.php ]; then
 fi
 
 cd /opt/nexus-web/app
+drush -y updatedb
 drush cc all
