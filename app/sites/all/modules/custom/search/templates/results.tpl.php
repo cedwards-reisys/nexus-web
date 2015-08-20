@@ -1,5 +1,6 @@
-<div class="col-md-3 input-group" id="searchInputKeywords">
-    <input type="text" class="form-control " placeholder="Search by keywords...">
+<!-- SEARCH BAR -->
+<div class="col-md-2 col-md-offset-8 input-group" id="searchInputKeywords">
+    <input type="text" class="form-control" placeholder="Search by keywords...">
     <span class="input-group-btn">
         <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -7,38 +8,38 @@
         </button>
     </span>
 </div>
-
-<h5 id="searchKeywords"><span class="fontBold">Keywords:</span> <span id="keywordsText"></span></h5>
-
-<div id="resultsSummary" class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <dl id="searchTransactionSum">
-                    <dt style="font-weight:normal;">Total Amount</dt>
-                    <dd style="font-size:18px;font-weight:bold;">0</dd>
-                </dl>
-            </div>
-            <div class="col-md-2">
-                <dl id="searchTransactionCount">
-                    <dt style="font-weight:normal;">Transactions</dt>
-                    <dd style="font-size:18px;font-weight:bold;">0</dd>
-                </dl>
-            </div>
-        </div>
-</div>
-
 <div class="row">
-
-    <div class="col-md-2" id="searchFilterSection">
-        <div class="row">
-            <div class="col-md-6">
-                <h4 class="fontBold">Filters</h4>
-            </div>
-            <div class="col-md-6">
-                <button class="btn btn-default btn-xs">Apply</button>
-                <button class="btn btn-default btn-xs">Clear</button>
+    <!-- KEYWORD DISPLAY -->
+    <div class="col-md-8 col-md-offset-2">
+        <h5 id="searchKeywords"><span class="fontBold">Keywords:</span> <span id="keywordsText"></span></h5>
+        <div id="resultsSummary">
+            <div class="row">
+                <div class="col-md-3">
+                    <dl id="searchTransactionSum">
+                        <dt style="font-weight:normal;">Total Amount</dt>
+                        <dd style="font-size:21px;font-weight:bold;">0</dd>
+                    </dl>
+                </div>
+                <div class="col-md-3">
+                    <dl id="searchTransactionCount">
+                        <dt style="font-weight:normal;">Transactions</dt>
+                        <dd style="font-size:21px;font-weight:bold;">0</dd>
+                    </dl>
+                </div>
+                <div class="col-md-3">
+                    <dl id="searchContractCount">
+                        <dt style="font-weight:normal;">Contracts</dt>
+                        <dd style="font-size:21px;font-weight:bold;">0</dd>
+                    </dl>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="row">
+    <!-- FILTERS -->
+    <div id="searchFilterSection" class="col-md-2 col-md-offset-2">
+        <h4 class="fontBold">Filter</h4>
         <div id="searchFilterPanel" class="panel-group" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
                 <div class="panel-heading filterHeader" role="tab" id="headingOne">
@@ -50,7 +51,6 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body" style="padding-left: 5px; padding-right: 5px;">
-
                         <div class="form-group form-group-sm">
                             <div class="col-md-7" style="padding-left: 5px; padding-right: 5px;">
                                 <select class="form-control input-sm" id="awardAmountOperatorInput">
@@ -62,7 +62,6 @@
                                 <input type="text" class="form-control input-sm" id="awardAmountInput" placeholder="Amount">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -149,12 +148,14 @@
                 </div>
             </div>
         </div>
+        <div id="filterControls">
+            <button class="btn btn-default btn-xs btn-submit floatleft">Apply</button>
+            <button class="btn btn-default btn-xs btn-cancel floatright">Clear</button>
+        </div>
     </div>
-
-    <div class="col-md-9" id="searchResultSection">
-
+    <!-- RESULTS -->
+    <div id="searchResultSection" class="col-md-5">
         <h4 class="fontBold">Results</h4>
-
         <div id="searchMessageWrapper">
             <div id="searchErrorMessage" class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -166,7 +167,6 @@
                 </p>
             </div>
         </div>
-
         <div id="searchTableWrapper">
             <table id="searchResults" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -181,7 +181,6 @@
                 </thead>
             </table>
         </div>
-
         <div id="searchBarChartWrapper" style="display: none;">
             <h4>Top Award Amounts</h4>
             <div class="row">
@@ -197,8 +196,6 @@
                         <svg></svg>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-6">
                     <h5>Product/Service Codes</h5>
                     <div id="barChartProduct">
@@ -212,9 +209,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <div id="searchMapWrapper" style="display: none;">
             <h4>Top Award Amounts</h4>
             <div class="row">
@@ -228,24 +223,14 @@
                 </div>
             </div>
         </div>
-
-        <div id="searchTimeWrapper" style="display: none;">
-            <h4>Award Amounts Per Month</h4>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="timeSeriesAmount"><svg></svg></div>
-                </div>
-            </div>
-        </div>
-
     </div>
-
-    <div class="col-md-1 dataViewButtons">
-        <div><button data-panel="grid" class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
-        <div><button data-panel="bar" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
-        <div><button data-panel="map" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
-        <div><button data-panel="time" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-time"></span></button></div>
+    <!-- VISUALIZATION -->
+    <div class="col-md-1">
+        <h4>Visualizations</h4>
+        <div id="dataViewButtons">
+            <div><button data-panel="grid" class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
+            <div><button data-panel="bar" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
+            <div><button data-panel="map" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
+        </div>
     </div>
 </div>
-
-
