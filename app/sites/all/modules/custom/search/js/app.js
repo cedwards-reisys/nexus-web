@@ -201,7 +201,7 @@
                         wrapper: $('#searchBarChartWrapper'),
                         render: function () {
                             _this.getComponent('agencyBarChart').setSearchQuery(_this.getQuery()['$where']).render();
-                            _this.getComponent('agencyBarChart').setSearchQuery(_this.getQuery()['$where']).render();
+                            _this.getComponent('vendorBarChart').setSearchQuery(_this.getQuery()['$where']).render();
                             _this.getComponent('productBarChart').setSearchQuery(_this.getQuery()['$where']).render();
                             _this.getComponent('naicsBarChart').setSearchQuery(_this.getQuery()['$where']).render();
                         }
