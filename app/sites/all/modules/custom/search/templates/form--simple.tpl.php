@@ -11,28 +11,27 @@
             </div>
         </div>
     </div>
-</div>
+    <script type="text/javascript">
+        jQuery(function() {
 
-<script type="text/javascript">
-    jQuery(function() {
-
-        jQuery('#searchInputKeywords').find('button').on('click',function(){
-            var Uri = new FS.Util.UriHandler('/search');
-            var keywords = jQuery('#searchInputKeywords').find('input').val();
-
-            Uri.addParam('keywords',keywords).redirect();
-        });
-
-        jQuery('#searchInputKeywords').find('input').on('keyup',function(e){
-            var key = e.which;
-            if ( key == 13 ) {
+            jQuery('#searchInputKeywords').find('button').on('click',function(){
                 var Uri = new FS.Util.UriHandler('/search');
                 var keywords = jQuery('#searchInputKeywords').find('input').val();
 
                 Uri.addParam('keywords',keywords).redirect();
-                return false;
-            }
-        });
+            });
 
-    });
-</script>
+            jQuery('#searchInputKeywords').find('input').on('keyup',function(e){
+                var key = e.which;
+                if ( key == 13 ) {
+                    var Uri = new FS.Util.UriHandler('/search');
+                    var keywords = jQuery('#searchInputKeywords').find('input').val();
+
+                    Uri.addParam('keywords',keywords).redirect();
+                    return false;
+                }
+            });
+
+        });
+    </script>
+</div>
