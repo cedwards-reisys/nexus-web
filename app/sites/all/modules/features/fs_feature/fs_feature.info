@@ -1,0 +1,12 @@
+name = FS Feature
+description = Exportable configs for FS
+core = 7.x
+package = FedSpending Features
+version = 7.x-1.0
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = fs_search
+features[context][] = home
+features[context][] = sitewide
+features[ctools][] = context:context:3
+features[features_api][] = api:2
