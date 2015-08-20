@@ -217,6 +217,14 @@
                 </div>
             </div>
         </div>
+        <div id="searchTimeWrapper" style="display: none;">
+            <h4>Award Amounts Per Month</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="timeSeriesAmount"><svg></svg></div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- VISUALIZATION -->
     <div class="col-md-1">
