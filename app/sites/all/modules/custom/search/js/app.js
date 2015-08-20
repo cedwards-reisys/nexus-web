@@ -26,9 +26,9 @@
 
             this.applySearchFilters();
 
-            $('.dataViewButtons').find('button').on('click',function(){
+            $('#dataViewButtons').find('button').on('click',function(){
 
-                $('.dataViewButtons').find('button').removeClass('btn-primary active').addClass('btn-default');
+                $('#dataViewButtons').find('button').removeClass('btn-primary active').addClass('btn-default');
                 $(this).addClass('btn-primary active');
 
                 var selectedPanel = $(this).data('panel');
@@ -290,7 +290,7 @@
 
         updateDataView: function() {
             this.applySearchFilters();
-            var selectedPanel = $('.dataViewButtons').find('button.active').data('panel');
+            var selectedPanel = $('#dataViewButtons').find('button.active').data('panel');
             $.each(this.getDataViewPanels(),function(key,panel){
                 if ( key === selectedPanel ) {
                     panel.render();

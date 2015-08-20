@@ -231,6 +231,7 @@
             <div><button data-panel="grid" class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
             <div><button data-panel="bar" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
             <div><button data-panel="map" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
+            <div><button data-panel="time" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-time"></span></button></div>
         </div>
     </div>
 </div>
