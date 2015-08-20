@@ -226,6 +226,8 @@
 
         applySearchFilters: function () {
 
+            delete this.query['$where'];
+
             // Keyword Input
             var textSearch = $('#searchInputKeywords').find('input').val();
             if ( textSearch ) {
