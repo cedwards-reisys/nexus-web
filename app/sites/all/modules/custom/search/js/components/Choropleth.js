@@ -39,20 +39,25 @@
                 data: this.query
             }).done(function( data ) {
 
+                var colorPalette = colorbrewer['Blues'][_this.cLevels];//.reverse();
+
                 var mapValues = {};
                 var amounts = [];
                 for (var i = 0,len=data.length; i < len; i++) {
-                    mapValues[data[i].x.substr(0,2)] = parseInt(data[i].y);
-                    amounts.push(data[i].y);
+                    var stateCode = data[i].x.substr(0,2).replace(/[^a-zA-Z]/g, '');
+                    if ( stateCode && parseInt(data[i].y) ) {
+                        mapValues[stateCode] = parseInt(data[i].y);
+                        amounts.push(parseInt(data[i].y));
+                    }
                 }
 
                 var scale = d3.scale.quantize()
                     .domain(d3.extent(amounts))
-                    .range(colorbrewer['Blues'][_this.cLevels].reverse());
+                    .range(colorPalette);
                 var colors = {};
-                for (var i = 0,len=data.length; i < len; i++) {
-                    colors[data[i].x.substr(0,2)] = scale(parseInt(data[i].y));
-                }
+                $.each(mapValues,function(k,v){
+                    colors[k] = scale(v);
+                });
 
                 //console.log(mapValues);
                 //console.log(colors);
@@ -61,8 +66,6 @@
                 _this.map = new Datamap({
                     element: document.getElementById(_this.container),
                     scope: 'usa',
-                    height: 400,
-                    width: 600,
                     fills: {defaultFill: '#ffffff'},
                     data: mapValues,
                     responsive: true,
@@ -79,11 +82,9 @@
                 });
 
                 // build gradient
-                _this.buildGradient(colorbrewer['Blues'][_this.cLevels].reverse(), _this.container + '_amountGradient');
+                _this.buildGradient(colorPalette, _this.container + '_amountGradient');
 
                 // draw colorbar
-                var visWidth = document.getElementById(_this.container).offsetWidth/2;
-
                 var cbar = d3.select('#' + _this.container + ' .datamap').append('g')
                     .attr('id', 'colorBar')
                     .attr('class', 'colorbar');
@@ -110,7 +111,7 @@
                     .attr('dy', 0)
                     .attr('text-anchor', 'end');
 
-                cbar.attr('transform', 'translate(' + (visWidth-_this.cbarWidth)/2.0 + ', 30)');  // Shift to center
+                //cbar.attr('transform', 'translate(10, 0)');  // Shift to center
 
                 d3.select('#' + _this.container + ' .gradientRect').style('fill', 'url(#'+_this.container+'_amountGradient)');
                 d3.select('#' + _this.container + ' .colorBarMinText').text('0');
