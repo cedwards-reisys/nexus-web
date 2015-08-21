@@ -100,6 +100,7 @@ table.dataTable {
 	font-size: 21px;
 	font-weight: bold;
 	margin-bottom: 15px;
+	color: #5DAB68;
 }
 
 #resultsSummary dl {
@@ -130,6 +131,7 @@ table.dataTable {
 #filterControls .btn.btn-submit,
 #dataViewButtons .active {
 	background-color: #68bf74;
+	border: none;
 	color: #fff;
 }
 
@@ -141,7 +143,7 @@ table.dataTable {
 #dataViewButtons {
 	height: 100%;
 	text-align: center;
-	background-color: #68bf74;
+	background-color: #F2F1E9;
 	border: 1px solid #ddd;
 	border-radius: 5px;
 }
@@ -150,6 +152,10 @@ table.dataTable {
 	margin: 10px 0;
 	height: 35px;
 	width: 70%;
+}
+
+#dataViewButtons .btn.active {
+	border: none;
 }
 
 #searchFilterPanel {
