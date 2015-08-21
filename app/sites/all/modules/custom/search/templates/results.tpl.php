@@ -1,5 +1,5 @@
 <!-- SEARCH BAR -->
-<div class="col-md-2 col-md-offset-8 input-group" id="searchInputKeywords">
+<div class="col-md-2 col-md-offset-9 input-group" id="searchInputKeywords">
     <input type="text" class="form-control" placeholder="Search by keywords...">
     <span class="input-group-btn">
         <button type="button" class="btn btn-default">
@@ -10,7 +10,7 @@
 </div>
 <div class="row">
     <!-- KEYWORD DISPLAY -->
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
         <h5 id="searchKeywords"><span class="fontBold">Keywords:</span> <span id="keywordsText"></span></h5>
         <div id="resultsSummary">
             <div class="row">
@@ -32,7 +32,7 @@
 </div>
 <div class="row">
     <!-- FILTERS -->
-    <div id="searchFilterSection" class="col-md-2 col-md-offset-2">
+    <div id="searchFilterSection" class="col-md-2 col-md-offset-1">
         <h4 class="fontBold">Filter</h4>
         <div id="searchFilterPanel" class="panel-group" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
@@ -133,7 +133,7 @@
         </div>
     </div>
     <!-- RESULTS -->
-    <div id="searchResultSection" class="col-md-5">
+    <div id="searchResultSection" class="col-md-7">
         <h4 class="fontBold">Results</h4>
         <div id="searchMessageWrapper">
             <div id="searchErrorMessage" class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">

@@ -11,12 +11,26 @@ table.dataTable {
 	margin-top: 0px !important;
 }
 
+#homepage .jumbotron {
+	background-color: #fff;
+	border-radius: 5px;
+	margin-bottom: 0px;
+}
+
+#homepageJumbotron {
+	text-align: center;
+}
+
+#homepageJumbotron h2 {
+	margin: 0 0 50px;
+}
+
 #homepageMainSection {
 	margin: 0 auto;
 }
 
 #homepageMainSection .input-group .form-control {
-
+	
 }
 
 #homepageMainSection #homepageHeadline {
@@ -35,6 +49,7 @@ table.dataTable {
 #homepageContent {
 	line-height: 1.5em;
 	margin-top: 30px;
+	text-align: left;
 }
 
 #navbar {
@@ -127,6 +142,42 @@ table.dataTable {
 #searchFilterPanel {
 	margin-bottom: 10px !important;
 }
+
+#searchResultSection {
+	overflow-x: auto;
+}
+
+#footerNav {
+	text-align: center;
+}
+
+#footerNav .logo {
+	display: block;
+	font-size: 14px;
+}
+
+#footerNav ul {
+	margin-top: 25px;
+	display: inline-block;
+	width: 580px;
+}
+
+#footerNav ul li {
+	font-size: 11px;
+	float: left;
+	width: 100px;
+	border-left: 1px solid #ddd;
+}
+
+#footerNav ul li:first-child {
+	border-left: none;
+}
+
+#footerNav ul li a {
+	margin: 0;
+	padding: 0;
+}
+
 
 .filterHeader {
 	background-color: #F2F1E9 !important;

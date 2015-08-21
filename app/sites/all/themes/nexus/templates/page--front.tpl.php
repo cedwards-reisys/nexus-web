@@ -123,7 +123,7 @@
         <?php print render($page['header']); ?>
     </header> <!-- /#page-header -->
 
-    <div class="row">
+    <div id="homepage" class="row">
 
         <?php if (!empty($page['sidebar_first'])): ?>
             <aside class="col-sm-3" role="complementary">
@@ -138,9 +138,7 @@
             <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
             <a id="main-content"></a>
             <?php print render($title_prefix); ?>
-            <?php if (!empty($title)): ?>
-                <h2 class="page-header"><?php print $title; ?></h2>
-            <?php endif; ?>
+    
             <?php print render($title_suffix); ?>
             <?php print $messages; ?>
             <?php if (!empty($tabs)): ?>
