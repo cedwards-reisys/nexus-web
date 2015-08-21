@@ -1,3 +1,7 @@
+/************************
+      Global Styles
+*************************/
+
 body {
 	background-color: #FEFFFE;
 	font-family: georgia, serif;
@@ -15,6 +19,18 @@ table.dataTable {
 	margin-top: 0px !important;
 }
 
+/************************
+   ID Specific Elements 
+*************************/
+
+#navbar {
+	border-bottom: 1px solid #68bf74;
+}
+
+#navbar .container-fluid {
+	padding: 0px;
+}
+
 #homepage .jumbotron {
 	background-color: #fff;
 	border-radius: 5px;
@@ -26,16 +42,14 @@ table.dataTable {
 	color: #68bf74;
 }
 
-#homepageJumbotron h2 {
-	margin: 0 0 50px;
+#homepageJumbotron h1 {
+	margin: 0 auto 50px;
+	font-size: 50px;
+	width: 50%;
 }
 
 #homepageMainSection {
 	margin: 0 auto;
-}
-
-#homepageMainSection .input-group .form-control {
-	
 }
 
 #homepageMainSection #homepageHeadline {
@@ -61,23 +75,18 @@ table.dataTable {
 	background-color: #F2F1E9;
 }
 
-#aboutSection {
-	text-align: center;
+#aboutSection h3 {
+	margin-top: 0;
+	text-align: right;
 }
 
 #aboutSection .row {
 	margin-bottom: 25px;
 }
 
-#searchInputKeywords {
-/*	position: absolute;
-	top: 0;
-	right: 15px;*/
-}
-
 #searchKeywords {
 	font-size: 16px;
-	margin-bottom: 20px;
+	margin: 20px 0;
 }
 
 #resultsSummary {
@@ -197,14 +206,29 @@ table.dataTable {
 	padding: 0;
 }
 
+#searchResults_paginate .pagination .disabled a {
+	color: #777;
+}
+
+#searchResults_paginate .pagination .active a {
+	background-color: #68bf74;
+	border: 1px solid #68bf74;
+	color: #fff;
+}
+
+#searchResults_paginate .paginate_button a {
+	color: #68bf74;
+}
+
+/************************
+        Classes 
+*************************/
 
 .filterHeader {
 	background-color: #F2F1E9 !important;
 }
 
 .main-container {
- /*   margin-left: 15px;
-    margin-right: 15px;*/
     margin: 0 auto;
 }
 
@@ -213,8 +237,8 @@ table.dataTable {
 }
 
 .fontBold {
-/*	font-weight: bold;
-*/}
+	font-weight: bold;
+}
 
 .clearfloat {
 	clear: both;
@@ -235,26 +259,25 @@ table.dataTable {
 	float: right;
 }
 
+/************************
+      Media Queries 
+*************************/
+
 /* Small Screens */
 @media (max-width: 768px) {
-	#homepageMainSection #homepageHeadline h1 {
-		/*font-size: 21px;
-		line-height: 1.2em;*/
+	#homepageJumbotron h1 {
+		font-size: 27px;
+		width: 100%;
 	}
 }
 
 /* Medium Screens */
 @media (max-width: 992px) {
-	#homepageMainSection #homepageHeadline h1 {
-		/*font-size: 21px;
-		line-height: 1.2em;*/
+	#homepageJumbotron h1 {
+		width: 100%;
 	}
 }
 
 /* Large Screens */
 @media (max-width: 1200px) {
-	#homepageMainSection #homepageHeadline h1 {
-		/*font-size: 21px;
-		line-height: 1.2em;*/
-	}
 }

@@ -11,7 +11,7 @@
 <div class="row">
     <!-- KEYWORD DISPLAY -->
     <div class="col-md-10 col-md-offset-1">
-        <h5 id="searchKeywords"><span class="fontBold">Keywords:</span> <span id="keywordsText"></span></h5>
+        <h5 id="searchKeywords"><span>Keywords:</span> <span id="keywordsText"></span></h5>
         <div id="resultsSummary">
             <div class="row">
                 <div class="col-md-3">
@@ -33,7 +33,7 @@
 <div class="row">
     <!-- FILTERS -->
     <div id="searchFilterSection" class="col-md-2 col-md-offset-1">
-        <h4 class="fontBold">Filter</h4>
+        <h4>Filter</h4>
         <div id="searchFilterPanel" class="panel-group" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
                 <div class="panel-heading filterHeader" role="tab" id="headingOne">
@@ -134,7 +134,7 @@
     </div>
     <!-- RESULTS -->
     <div id="searchResultSection" class="col-md-7">
-        <h4 class="fontBold">Results</h4>
+        <h4>Results</h4>
         <div id="searchMessageWrapper">
             <div id="searchErrorMessage" class="alert alert-danger alert-dismissible fade in" role="alert" style="display: none;">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
