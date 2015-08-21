@@ -2,7 +2,7 @@
     <h2>The Offical Government Source for Federal Spending Data</h2>
 
     <div id="searchInputKeywords" class="homepage-search row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-6 col-md-offset-3">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search by keywords...">
                 <span class="input-group-btn"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="sr-only">Search</span></button></span>

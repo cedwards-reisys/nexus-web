@@ -56,6 +56,14 @@ table.dataTable {
 	background-color: #F2F1E9;
 }
 
+#aboutSection {
+	text-align: center;
+}
+
+#aboutSection .row {
+	margin-bottom: 25px;
+}
+
 #searchInputKeywords {
 /*	position: absolute;
 	top: 0;
