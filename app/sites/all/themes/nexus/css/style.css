@@ -31,6 +31,10 @@ table.dataTable {
 	padding: 0px;
 }
 
+#navbar .navbar-header {
+	margin-left: 8.33%;
+}
+
 #homepage .jumbotron {
 	background-color: #fff;
 	border-radius: 5px;
