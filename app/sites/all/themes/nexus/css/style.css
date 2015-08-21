@@ -3,6 +3,10 @@ body {
 	font-family: georgia, serif;
 }
 
+a {
+	color: #68bf74;
+}
+
 table.table-bordered.dataTable {
 	border-collapse: collapse !important;
 }
@@ -124,19 +128,19 @@ table.dataTable {
 
 #filterControls .btn.btn-submit,
 #dataViewButtons .active {
-	background-color: #428bca;
+	background-color: #68bf74;
 	color: #fff;
 }
 
 #filterControls .btn.btn-submit:hover,
 #dataViewButtons .active:hover {
-	background-color: #3071a9;
+	background-color: #5DAB68;
 }
 
 #dataViewButtons {
 	height: 100%;
 	text-align: center;
-	background-color: #F2F1E9;
+	background-color: #68bf74;
 	border: 1px solid #ddd;
 	border-radius: 5px;
 }
