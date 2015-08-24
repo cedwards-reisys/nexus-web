@@ -258,6 +258,14 @@
                 filters.push('UPPER(piid) = \''+awardIdSearch.toUpperCase()+'\'');
             }
 
+            // Award Date
+            var awardDateFromSearch = $('#awardDateFromInput').val();
+            var awardDateToSearch = $('#awardDateToInput').val();
+
+            if ( awardDateFromSearch && awardDateToSearch ) {
+                filters.push('signeddate between \'' + FS.Util.DateFormat.getApiDate(awardDateFromSearch) + '\' and \'' + FS.Util.DateFormat.getApiDate(awardDateToSearch) + '\'');
+            }
+
             // Recipient Name Input
             var recipientNameSearch = $('#recipientNameInput').val();
             if ( recipientNameSearch ) {
@@ -309,7 +317,22 @@
 
             $('#awardIdInput').on('keyup',function(e){
                 var key = e.which;
-                if ( key == 13 && $(this).val() ) {
+                if ( key == 13 ) {
+                    _this.updateDataView();
+                    return false;
+                }
+            });
+
+            $('#awardDateInputFrom').on('keyup',function(e){
+                var key = e.which;
+                if ( key == 13 && $(this).val() && $('#awardDateInputTo').val() ) {
+                    _this.updateDataView();
+                    return false;
+                }
+            });
+            $('#awardDateInputTo').on('keyup',function(e){
+                var key = e.which;
+                if ( key == 13 && $(this).val() && $('#awardDateInputFrom').val() ) {
                     _this.updateDataView();
                     return false;
                 }
@@ -323,15 +346,13 @@
                 }
             });
 
-            // Amount form controller
             $('#awardAmountInput').on('keyup',function(e){
                 var key = e.which;
-                if ( key == 13 && $(this).val() ) {
+                if ( key == 13 ) {
                     _this.updateDataView();
                     return false;
                 }
             });
-
             $('#awardAmountOperatorInput').on('change',function(e){
                 if ( $('#awardAmountInput').val() ) {
                     _this.updateDataView();
@@ -340,7 +361,7 @@
 
             $('#contractAgencyNameInput').on('keyup',function(e){
                 var key = e.which;
-                if ( key == 13 && $(this).val() ) {
+                if ( key == 13 ) {
                     _this.updateDataView();
                     return false;
                 }

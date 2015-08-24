@@ -1,5 +1,5 @@
 
-(function (global) {
+(function (global, moment) {
 
     if (typeof global.FS === 'undefined') {
         throw new Error('Util.DateFormat requires FS');
@@ -8,6 +8,18 @@
     var FS = global.FS;
 
     var DateFormat = {
+
+        parse: function() {
+            return moment.call(arguments);
+        },
+
+        format: function() {
+            return moment().format.call(arguments);
+        },
+
+        getApiDate: function( string ) {
+            return moment(string).format('YYYY-MM-DD');
+        },
 
         getShortUsDate: function( date ) {
 
@@ -23,4 +35,4 @@
 
     FS.Util.DateFormat = DateFormat;
 
-})(typeof window === 'undefined' ? this : window);
+})(typeof window === 'undefined' ? this : window, moment);

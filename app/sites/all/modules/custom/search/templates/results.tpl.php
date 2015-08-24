@@ -83,18 +83,11 @@
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                     <div class="panel-body">
+                        <label for="awardDateFromInput">Between</label>
+                        <input type="text" class="form-control input-sm" id="awardDateFromInput" placeholder="mm/dd/yyy">
 
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="awardDateInputFrom">From</label>
-                                <input type="text" class="form-control" id="awardDateInputFrom" placeholder="mm/dd/yyy">
-                            </div>
-                            <div class="form-group">
-                                <label for="awardDateInputTo">To</label>
-                                <input type="email" class="form-control" id="awardDateInputTo" placeholder="mm/dd/yyyy">
-                            </div>
-                        </form>
-
+                        <label for="awardDateToInput">And</label>
+                        <input type="email" class="form-control input-sm" id="awardDateToInput" placeholder="mm/dd/yyyy">
                     </div>
                 </div>
             </div>

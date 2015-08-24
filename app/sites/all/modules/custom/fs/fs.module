@@ -19,7 +19,16 @@ function fs_library() {
             drupal_get_path('module', 'fs').'/js/util/NumberFormat.js' => array('weight' => 100),
         ),
         'dependencies' => array(
-            array('system','jquery')
+            array('system','jquery'),
+            array('fs','moment')
+        )
+    );
+
+    $libraries['moment'] = array(
+        'title'   => 'Moment',
+        'version' => '2.10.6',
+        'js' => array(
+            '/sites/all/libraries/moment/moment.min.js' => array('weight' => 0),
         )
     );
 
