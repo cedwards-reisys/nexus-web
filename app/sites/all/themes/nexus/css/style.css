@@ -88,13 +88,21 @@ table.dataTable {
 	background-color: #F2F1E9;
 }
 
+#aboutSection {
+	text-align: center;
+}
+
 #aboutSection h3 {
 	margin-top: 0;
-	text-align: right;
+	text-align: left;
 }
 
 #aboutSection .row {
-	margin-bottom: 25px;
+	margin-bottom: 10px;
+}
+
+#aboutSection .separation {
+	padding: 10px 0 25px;
 }
 
 #searchKeywords {
@@ -275,6 +283,14 @@ table.dataTable {
 
 .floatright {
 	float: right;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
 }
 
 /************************
