@@ -86,12 +86,12 @@
 
                         <form class="form-inline">
                             <div class="form-group">
-                                <label for="exampleInputName2">From</label>
-                                <input type="text" class="form-control" id="exampleInputName2" placeholder="mm/dd/yyy">
+                                <label for="awardDateInputFrom">From</label>
+                                <input type="text" class="form-control" id="awardDateInputFrom" placeholder="mm/dd/yyy">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail2">To</label>
-                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="mm/dd/yyyy">
+                                <label for="awardDateInputTo">To</label>
+                                <input type="email" class="form-control" id="awardDateInputTo" placeholder="mm/dd/yyyy">
                             </div>
                         </form>
 
@@ -128,8 +128,8 @@
             </div>
         </div>
         <div id="filterControls">
-            <button class="btn btn-default btn-xs btn-submit floatleft">Apply</button>
-            <button class="btn btn-default btn-xs btn-cancel floatright">Clear</button>
+            <button id="filterControlApply" class="btn btn-default btn-xs btn-submit floatleft">Apply</button>
+            <button id="filterControlClear" class="btn btn-default btn-xs btn-cancel floatright">Clear</button>
         </div>
     </div>
     <!-- RESULTS -->

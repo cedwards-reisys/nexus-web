@@ -22,15 +22,24 @@
 
             var _this = this;
             var Uri = new FS.Util.UriHandler();
-            $('#searchInputKeywords').find('input').val(Uri.getParam('keywords'));
+
+            var searchInputKeywords = $('#searchInputKeywords');
+            searchInputKeywords.find('input').val(Uri.getParam('keywords'));
+            searchInputKeywords.find('button').on('click',function(){
+                _this.updateDataView();
+            });
+            searchInputKeywords.find('input').on('keyup',function(e){
+                var key = e.which;
+                if ( key == 13 ) {
+                    _this.updateDataView();
+                    return false;
+                }
+            });
 
             $('#dataViewButtons').find('button').on('click',function(){
-
                 $('#dataViewButtons').find('button').removeClass('btn-primary active').addClass('btn-default');
                 $(this).addClass('btn-primary active');
-
                 var selectedPanel = $(this).data('panel');
-
                 $.each(_this.getDataViewPanels(),function(k,panel){
                     if ( k === selectedPanel ) {
                         panel.wrapper.show();
@@ -41,7 +50,6 @@
                     }
                 });
             });
-
             this.updateDataView();
         },
 
@@ -285,16 +293,18 @@
         addFilterFormHandlers: function() {
             var _this = this;
 
-            $('#searchInputKeywords').find('button').on('click',function(){
+            $('#filterControlApply').on('click',function(){
                 _this.updateDataView();
             });
 
-            $('#searchInputKeywords').find('input').on('keyup',function(e){
-                var key = e.which;
-                if ( key == 13 ) {
-                    _this.updateDataView();
-                    return false;
-                }
+            $('#filterControlClear').on('click',function(){
+                $('#awardIdInput').val('');
+                $('#recipientNameInput').val('');
+                $('#awardAmountInput').val('');
+                $('#awardDateInputFrom').val();
+                $('#awardDateInputTo').val();
+                $('#contractAgencyNameInput').val();
+                _this.updateDataView();
             });
 
             $('#awardIdInput').on('keyup',function(e){
