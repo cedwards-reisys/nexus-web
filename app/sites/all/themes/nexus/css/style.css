@@ -35,6 +35,15 @@ table.dataTable {
 	margin-left: 8.33%;
 }
 
+#navbar .navbar-btn img {
+	width: 202px;
+	height: 28px;
+}
+
+.page-header {
+	padding-left: 8.33%;
+}
+
 #homepage .jumbotron {
 	background-color: #fff;
 	border-radius: 5px;
@@ -48,7 +57,7 @@ table.dataTable {
 
 #homepageJumbotron h1 {
 	margin: 0 auto 50px;
-	font-size: 50px;
+	font-size: 42px;
 	width: 50%;
 }
 
@@ -120,7 +129,11 @@ table.dataTable {
 	margin-bottom: 0;
 }
 
-#searchResults tr.odd td {
+#searchResults thead th {
+	background-color: #F2F1E9 !important;
+}
+
+#searchResults tr.even td {
 	background-color: #F2F1E9 !important;
 }
 
@@ -159,6 +172,7 @@ table.dataTable {
 	background-color: #F2F1E9;
 	border: 1px solid #ddd;
 	border-radius: 5px;
+	margin-top: 40px;
 }
 
 #dataViewButtons .btn {
@@ -176,7 +190,7 @@ table.dataTable {
 }
 
 #searchResultSection {
-	overflow-x: auto;
+
 }
 
 #footerNav {

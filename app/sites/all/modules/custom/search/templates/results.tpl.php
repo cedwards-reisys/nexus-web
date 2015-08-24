@@ -1,5 +1,5 @@
 <!-- SEARCH BAR -->
-<div class="col-md-2 col-md-offset-9 input-group" id="searchInputKeywords">
+<div class="col-md-3 col-md-offset-8 input-group" id="searchInputKeywords">
     <input type="text" class="form-control" placeholder="Search by keywords...">
     <span class="input-group-btn">
         <button type="button" class="btn btn-default">
@@ -213,7 +213,6 @@
     </div>
     <!-- VISUALIZATION -->
     <div class="col-md-1">
-        <h4>Visualizations</h4>
         <div id="dataViewButtons">
             <div><button data-panel="grid" class="btn btn-primary active"><span class="glyphicon glyphicon-th"></span></button></div>
             <div><button data-panel="bar" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>

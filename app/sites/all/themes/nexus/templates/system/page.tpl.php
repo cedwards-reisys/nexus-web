@@ -139,7 +139,7 @@
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title)): ?>
-        <h2 class="page-header col-md-offset-1"><?php print $title; ?></h2>
+        <h2 class="page-header"><?php print $title; ?></h2>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
