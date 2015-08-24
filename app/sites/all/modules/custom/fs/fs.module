@@ -28,7 +28,7 @@ function fs_library() {
         'title'   => 'Moment',
         'version' => '2.10.6',
         'js' => array(
-            '/sites/all/libraries/moment/moment.min.js' => array('weight' => 0),
+            'sites/all/libraries/moment/moment.min.js' => array('weight' => 0),
         )
     );
 
