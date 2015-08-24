@@ -22,15 +22,24 @@
 
             var _this = this;
             var Uri = new FS.Util.UriHandler();
-            $('#searchInputKeywords').find('input').val(Uri.getParam('keywords'));
+
+            var searchInputKeywords = $('#searchInputKeywords');
+            searchInputKeywords.find('input').val(Uri.getParam('keywords'));
+            searchInputKeywords.find('button').on('click',function(){
+                _this.updateDataView();
+            });
+            searchInputKeywords.find('input').on('keyup',function(e){
+                var key = e.which;
+                if ( key == 13 ) {
+                    _this.updateDataView();
+                    return false;
+                }
+            });
 
             $('#dataViewButtons').find('button').on('click',function(){
-
                 $('#dataViewButtons').find('button').removeClass('btn-primary active').addClass('btn-default');
                 $(this).addClass('btn-primary active');
-
                 var selectedPanel = $(this).data('panel');
-
                 $.each(_this.getDataViewPanels(),function(k,panel){
                     if ( k === selectedPanel ) {
                         panel.wrapper.show();
@@ -41,7 +50,6 @@
                     }
                 });
             });
-
             this.updateDataView();
         },
 
@@ -80,7 +88,7 @@
             });
 
             this.components['agencyBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartAgency svg',
+                container: '#barChartAgency',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'agencyid AS x, SUM(dollarsobligated) AS y',
@@ -93,7 +101,7 @@
             });
 
             this.components['vendorBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartVendor svg',
+                container: '#barChartVendor',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'vendorname AS x, SUM(dollarsobligated) AS y',
@@ -106,7 +114,7 @@
             });
 
             this.components['productBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartProduct svg',
+                container: '#barChartProduct',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'productorservicecode AS x, SUM(dollarsobligated) AS y',
@@ -119,7 +127,7 @@
             });
 
             this.components['naicsBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartNaics svg',
+                container: '#barChartNaics',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'principalnaicscode AS x, SUM(dollarsobligated) AS y',
@@ -156,7 +164,7 @@
             });
 
             this.components['amountTimeSeries'] = new FS.Visualization.TimeSeries({
-                container: '#timeSeriesAmount svg',
+                container: '#timeSeriesAmount',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'sum(dollarsobligated) AS amount, date_trunc_ym(signeddate) AS date',
@@ -285,16 +293,18 @@
         addFilterFormHandlers: function() {
             var _this = this;
 
-            $('#searchInputKeywords').find('button').on('click',function(){
+            $('#filterControlApply').on('click',function(){
                 _this.updateDataView();
             });
 
-            $('#searchInputKeywords').find('input').on('keyup',function(e){
-                var key = e.which;
-                if ( key == 13 ) {
-                    _this.updateDataView();
-                    return false;
-                }
+            $('#filterControlClear').on('click',function(){
+                $('#awardIdInput').val('');
+                $('#recipientNameInput').val('');
+                $('#awardAmountInput').val('');
+                $('#awardDateInputFrom').val();
+                $('#awardDateInputTo').val();
+                $('#contractAgencyNameInput').val();
+                _this.updateDataView();
             });
 
             $('#awardIdInput').on('keyup',function(e){

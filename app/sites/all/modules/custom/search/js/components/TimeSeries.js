@@ -15,7 +15,7 @@
         render: function() {
             var _this = this;
 
-            $(this.container).empty();
+            $(this.container).html('<div class="dataViewFetching"></div>');
 
             this.chart = {};
 
@@ -100,7 +100,9 @@
                 .y0(height2)
                 .y1(function(d) { return y2(d.amount); });
 
-            var svg = d3.select(this.container)
+            $(this.container).html('<svg></svg>');
+
+            var svg = d3.select(this.container+' svg')
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom);
 
