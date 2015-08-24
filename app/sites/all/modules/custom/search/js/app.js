@@ -80,7 +80,7 @@
             });
 
             this.components['agencyBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartAgency svg',
+                container: '#barChartAgency',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'agencyid AS x, SUM(dollarsobligated) AS y',
@@ -93,7 +93,7 @@
             });
 
             this.components['vendorBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartVendor svg',
+                container: '#barChartVendor',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'vendorname AS x, SUM(dollarsobligated) AS y',
@@ -106,7 +106,7 @@
             });
 
             this.components['productBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartProduct svg',
+                container: '#barChartProduct',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'productorservicecode AS x, SUM(dollarsobligated) AS y',
@@ -119,7 +119,7 @@
             });
 
             this.components['naicsBarChart'] = new FS.Visualization.BarChart({
-                container: '#barChartNaics svg',
+                container: '#barChartNaics',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'principalnaicscode AS x, SUM(dollarsobligated) AS y',
@@ -156,7 +156,7 @@
             });
 
             this.components['amountTimeSeries'] = new FS.Visualization.TimeSeries({
-                container: '#timeSeriesAmount svg',
+                container: '#timeSeriesAmount',
                 api_host: this.API_HOST,
                 query: {
                     '$select': 'sum(dollarsobligated) AS amount, date_trunc_ym(signeddate) AS date',

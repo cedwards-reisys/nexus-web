@@ -206,7 +206,7 @@
             <h4>Award Amounts Per Month</h4>
             <div class="row">
                 <div class="col-md-12">
-                    <div id="timeSeriesAmount"><svg></svg></div>
+                    <div id="timeSeriesAmount"></div>
                 </div>
             </div>
         </div>

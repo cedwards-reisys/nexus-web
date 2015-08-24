@@ -44,6 +44,8 @@
         updateData: function () {
             var _this = this;
 
+            $(this.container).html('<div class="dataViewFetching"></div>');
+
             $.ajax({
                 url: this.api_host,
                 type: 'GET',
@@ -51,8 +53,8 @@
                 data: this.getPreparedQuery()
             }).done(function( data ) {
 
-                if ( !data ) {
-
+                if ( !data || typeof data['error'] !== 'undefined' ) {
+                    $(_this.container).html('<p>No Data.</p>');
                 } else {
                     var chartValues = [];
                     for (var i = 0,len=data.length; i < len; i++) {
@@ -67,7 +69,9 @@
                         values: chartValues
                     }];
 
-                    d3.select(_this.container)
+                    $(_this.container).html('<svg></svg>');
+
+                    d3.select(_this.container+' svg')
                         .datum(chartData)
                         .transition()
                         .duration(500)
@@ -84,9 +88,6 @@
                     _this.failCallback();
                 }
             });
-
-
-
         }
 
     });

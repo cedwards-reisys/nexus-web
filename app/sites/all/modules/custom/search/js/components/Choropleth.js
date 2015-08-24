@@ -20,7 +20,7 @@
         render: function() {
             var _this = this;
 
-            $('#'+this.container).empty();
+            $('#'+this.container).html('<div class="dataViewFetching"></div>');
 
             this.map = {};
 
@@ -30,6 +30,8 @@
                 dataType: 'json',
                 data: this.getPreparedQuery()
             }).done(function( data ) {
+
+                $('#'+_this.container).empty();
 
                 var colorPalette = colorbrewer['Blues'][_this.cLevels];//.reverse();
 
@@ -50,9 +52,6 @@
                 $.each(mapValues,function(k,v){
                     colors[k] = scale(v);
                 });
-
-                //console.log(mapValues);
-                //console.log(colors);
 
                 // Create map
                 _this.map = new Datamap({
