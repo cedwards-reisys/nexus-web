@@ -1,5 +1,5 @@
 <div id="homepageJumbotron">
-    <h1>The Offical Government Source for Federal Spending Data</h1>
+    <h1>The Official Government Source for Federal Spending Data</h1>
 
     <div id="searchInputKeywords" class="homepage-search row">
         <div class="col-md-6 col-md-offset-3">
