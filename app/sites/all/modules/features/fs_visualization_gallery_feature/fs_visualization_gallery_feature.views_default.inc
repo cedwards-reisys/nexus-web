@@ -30,9 +30,7 @@ function fs_visualization_gallery_feature_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
   $handler->display->display_options['style_options']['columns'] = '2';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
@@ -64,7 +62,7 @@ function fs_visualization_gallery_feature_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  /* Field: Content: Screenshot */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
