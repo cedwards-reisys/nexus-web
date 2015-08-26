@@ -8,6 +8,7 @@
         </button>
     </span>
 </div>
+
 <div class="row">
     <!-- KEYWORD DISPLAY -->
     <div class="col-md-10 col-md-offset-1">

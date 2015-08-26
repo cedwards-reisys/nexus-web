@@ -13,9 +13,8 @@
  */
 ?>
 
-<div id="views-bootstrap-grid-<?php print $id ?>" class="<?php print $classes ?>">
+<div id="views-bootstrap-grid-<?php print $id ?>" class="<?php print $classes ?> visualizationGallery col-md-10 col-md-offset-1">
     <?php if ($options['alignment'] == 'horizontal'): ?>
-
         <?php foreach ($items as $row): ?>
             <div class="row">
                 <?php foreach ($row['content'] as $column): ?>
@@ -25,9 +24,7 @@
                 <?php endforeach ?>
             </div>
         <?php endforeach ?>
-
     <?php else: ?>
-
         <div class="row">
             <?php foreach ($items as $column): ?>
                 <div class="col col-lg-<?php print $column_type ?>">
@@ -37,7 +34,6 @@
                 </div>
             <?php endforeach ?>
         </div>
-
     <?php endif ?>
 </div>
 

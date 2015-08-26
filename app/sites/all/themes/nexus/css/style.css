@@ -44,6 +44,10 @@ table.dataTable {
 	padding-left: 8.33%;
 }
 
+.visualizationGallery .views-field {
+	margin-bottom: 5px;
+}
+
 #homepage .jumbotron {
 	background-color: #fff;
 	border-radius: 5px;
@@ -57,8 +61,9 @@ table.dataTable {
 
 #homepageJumbotron h1 {
 	margin: 0 auto 50px;
-	font-size: 40px;
+	font-size: 55px;
 	width: 50%;
+	letter-spacing: -0.05em;
 }
 
 #homepageMainSection {
@@ -301,7 +306,7 @@ table.dataTable {
 /* Small Screens */
 @media (max-width: 768px) {
 	#homepageJumbotron h1 {
-		font-size: 27px;
+		font-size: 30px;
 		width: 100%;
 	}
 }
