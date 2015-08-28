@@ -157,25 +157,25 @@
         <div id="searchBarChartWrapper" style="display: none;">
             <h4>Top Award Amounts</h4>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 barChart">
                     <h5>Contracting Agencies</h5>
                     <div id="barChartAgency">
                         <svg></svg>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 barChart">
                     <h5>Recipients/Sub-recipients</h5>
                     <div id="barChartVendor">
                         <svg></svg>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 barChart">
                     <h5>Product/Service Codes</h5>
                     <div id="barChartProduct">
                         <svg></svg>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 barChart">
                     <h5>NAICS Codes</h5>
                     <div id="barChartNaics">
                         <svg></svg>

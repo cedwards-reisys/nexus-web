@@ -93,27 +93,26 @@ table.dataTable {
 	background-color: #F2F1E9;
 }
 
-#aboutSection {
+#oddColumnContainer {
 	text-align: center;
 	margin: 50px 0;
 }
 
-#aboutSection h3 {
+#oddColumnContainer h3 {
 	margin-top: 0;
 	text-align: left;
 }
 
-#aboutSection .row {
+#oddColumnContainer .row {
 	margin-bottom: 10px;
 }
 
-#aboutSection .separation {
+#oddColumnContainer .separation {
 	padding: 10px 0 25px;
 }
 
 #searchKeywords {
 	font-size: 16px;
-	margin: 20px 0;
 }
 
 #resultsSummary {
@@ -203,8 +202,19 @@ table.dataTable {
 	margin-bottom: 10px !important;
 }
 
-#searchResultSection {
+#searchBarChartWrapper {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 20px;
+	background-color: #F2F1E9;
+}
 
+#searchBarChartWrapper .barChart {
+	width: 46%;
+	margin: 25px 2%;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
 }
 
 #footerNav {
