@@ -11,12 +11,14 @@ function fs_library() {
         'title'   => 'FedSpending',
         'version' => '1.0.0',
         'js' => array(
-            drupal_get_path('module', 'fs').'/js/FS.js' => array('weight' => 100),
-            drupal_get_path('module', 'fs').'/js/Class.js' => array('weight' => 100),
-            drupal_get_path('module', 'fs').'/js/util/UriHandler.js' => array('weight' => 100),
-            drupal_get_path('module', 'fs').'/js/util/DateFormat.js' => array('weight' => 100),
-            drupal_get_path('module', 'fs').'/js/util/StringFormat.js' => array('weight' => 100),
-            drupal_get_path('module', 'fs').'/js/util/NumberFormat.js' => array('weight' => 100),
+            drupal_get_path('module', 'fs').'/js/FS.js' => array('weight' => 0),
+            drupal_get_path('module', 'fs').'/js/Class.js' => array('weight' => 0),
+            drupal_get_path('module', 'fs').'/js/util/UriHandler.js' => array('weight' => 0),
+            drupal_get_path('module', 'fs').'/js/util/DateFormat.js' => array('weight' => 0),
+            drupal_get_path('module', 'fs').'/js/util/StringFormat.js' => array('weight' => 0),
+            drupal_get_path('module', 'fs').'/js/util/NumberFormat.js' => array('weight' => 0),
+
+            drupal_get_path('module', 'fs').'/js/app.js' => array('weight' => 200,'scope' => 'footer', 'group' => JS_THEME)
         ),
         'dependencies' => array(
             array('system','jquery'),
