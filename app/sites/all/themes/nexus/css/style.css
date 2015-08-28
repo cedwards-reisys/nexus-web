@@ -93,21 +93,21 @@ table.dataTable {
 	background-color: #F2F1E9;
 }
 
-#oddColumnContainer {
+.oddColumnContainer {
 	text-align: center;
 	margin: 50px 0;
 }
 
-#oddColumnContainer h3 {
+.oddColumnContainer h3 {
 	margin-top: 0;
 	text-align: left;
 }
 
-#oddColumnContainer .row {
+.oddColumnContainer .row {
 	margin-bottom: 10px;
 }
 
-#oddColumnContainer .separation {
+.oddColumnContainer .separation {
 	padding: 10px 0 25px;
 }
 
