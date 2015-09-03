@@ -1,7 +1,7 @@
 <div class="oddColumnContainer">
     <div class="row center-block">
         <div>
-            <div id="searchInputKeywords" class="col-md-9 col-centered">
+            <div id="searchInputKeywords" class="homepageSearchBar col-md-9 col-centered">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search by keywords...">
                     <span class="input-group-btn"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="sr-only">Search</span></button></span>
