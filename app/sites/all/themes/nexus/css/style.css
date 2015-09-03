@@ -358,12 +358,18 @@ table.dataTable {
 		font-size: 30px;
 		width: 100%;
 	}
+	.col-centered {
+		margin-bottom: 30px;
+	}
 }
 
 /* Medium Screens */
 @media (max-width: 992px) {
 	#homepageJumbotron h1 {
 		width: 100%;
+	}
+	.col-centered {
+		margin-bottom: 30px;
 	}
 }
 

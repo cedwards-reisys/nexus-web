@@ -22,7 +22,7 @@
  */
 //print('<pre>' . print_r($form['submitted'],1) . '</pre>');
 ?>
-<div class="col-md-6 col-md-offset-3"><?php print drupal_render($form['submitted']);  print drupal_render_children($form); ?></div>
+<div class="col-md-9 col-md-offset-1"><?php print drupal_render($form['submitted']);  print drupal_render_children($form); ?></div>
 <?php
   // Print out the progress bar at the top of the page
   print drupal_render($form['progressbar']);
