@@ -302,6 +302,12 @@ table.dataTable {
 	list-style: none;
 }
 
+.textContentModule {
+	background-color: #F2F1E9;
+	padding: 15px;
+	color: #000;
+}
+
 .fontBold {
 	font-weight: bold;
 }
