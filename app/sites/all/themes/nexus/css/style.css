@@ -25,8 +25,10 @@ table.dataTable {
 *************************/
 
 #navbar {
+	border-top: 10px solid #68bf74;
 	border-bottom: 1px solid #68bf74;
-	background-color: #fff !important;
+	border-radius: 0px;
+	background-color: #FFF !important;
 }
 
 #navbar .container-fluid {
@@ -50,6 +52,11 @@ table.dataTable {
 	padding-top: 25px;
 }
 
+#navbar .active a {
+	background-color: #FFF !important;
+	border-bottom: 3px solid #68bf74;
+}
+
 .page-header {
 	padding-left: 8.33%;
 }
@@ -63,6 +70,11 @@ table.dataTable {
 	border-radius: 5px;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
+}
+
+#homepage p {
+	font-size: 16px;
+	line-height: 1.5em;
 }
 
 #homepageJumbotron {
@@ -92,10 +104,8 @@ table.dataTable {
 .homepageSearchBar {
 	margin-top: 25px;
 	padding: 30px;
-	background-color: #F2F1E9;
+	background-color: #FFF;
 	text-align: center;
-	border-radius: 5px;
-	border: 1px solid #68bf74;
 }
 
 #homepageContent {
@@ -238,12 +248,14 @@ table.dataTable {
 
 #footerNav {
 	text-align: center;
+	font-family: helvetica, arial, sans-serif;
 }
 
 #footerNav .logo {
 	display: block;
-	font-size: 14px;
-	margin-bottom: 15px;
+	font-size: 12px;
+	margin-bottom: 5px;
+	color: #fff;
 }
 
 #footerNav ul {
@@ -253,7 +265,7 @@ table.dataTable {
 }
 
 #footerNav ul li {
-	font-size: 11px;
+	font-size: 10px;
 	float: left;
 	width: 100px;
 	border-left: 1px solid #ddd;
@@ -289,7 +301,8 @@ table.dataTable {
 .footer {
 	height: 87px;
 	width: 100%;
-	border-top: 2px solid #68bf74;
+	background-color: #000;
+	border-top: 1px solid #68bf74;
 	padding-top: 20px !important;
 	padding-bottom: 10px !important;
 }
@@ -309,6 +322,8 @@ table.dataTable {
 
 .textContentModule {
 	background-color: #F2F1E9;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 	padding: 15px;
 	color: #000;
 }
@@ -318,7 +333,7 @@ table.dataTable {
 }
 
 .fontGreen {
-	color: #68bf74
+	color: #68bf74;
 }
 
 .clearfloat {
