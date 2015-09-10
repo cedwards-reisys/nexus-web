@@ -6,15 +6,13 @@
 	#In some cases where you have other mod_rewrite rules, you may need to comment out the following line
 	#and change it to match your folder name. This resets the other mod_rewrite rules for just this directory
 	#If your site was www.example.com/forum, the setting would be /forum/
-	#RewriteBase / 
+	RewriteBase /community/
 
 	# Send css calls directly to the correct file VBV-7807
 	RewriteRule ^css.php$ core/css.php [NC,L]
 
 	# Redirect old install path to core.
 	RewriteRule ^install/ core/install/ [NC,L]
-
-        RewriteRule ^admincp/phpinfo.php  core/admincp/phpinfo.php [L] 
 
 	# Main Redirect
 	RewriteCond %{REQUEST_URI} !\.(gif|jpg|jpeg|png|css)$
