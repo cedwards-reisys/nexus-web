@@ -14,4 +14,4 @@ drush cc all
 
 cp -f /opt/nexus-forum-storage/config.php /opt/nexus-web/app/community/config.php
 cp -f /opt/nexus-forum-storage/core/config.php /opt/nexus-web/app/community/core/includes/config.php
-
+rm -rf /opt/nexus-web/community/core/install
