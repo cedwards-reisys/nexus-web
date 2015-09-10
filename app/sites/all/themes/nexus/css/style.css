@@ -2,9 +2,14 @@
       Global Styles
 *************************/
 
+html {
+	height: 100%;
+}
+
 body {
 	background-color: #FEFFFE;
 	font-family: georgia, serif;
+	height: 100%;
 }
 
 a {
@@ -24,7 +29,10 @@ table.dataTable {
 *************************/
 
 #navbar {
+	border-top: 10px solid #68bf74;
 	border-bottom: 1px solid #68bf74;
+	border-radius: 0px;
+	background-color: #FFF !important;
 }
 
 #navbar .container-fluid {
@@ -40,6 +48,19 @@ table.dataTable {
 	height: 28px;
 }
 
+#navbar .logo {
+	padding-top: 10px;
+}
+
+#navbar li a {
+	padding-top: 25px;
+}
+
+#navbar .active a {
+	background-color: #FFF !important;
+	border-bottom: 3px solid #68bf74;
+}
+
 .page-header {
 	padding-left: 8.33%;
 }
@@ -52,15 +73,20 @@ table.dataTable {
 	background-color: #fff;
 	border-radius: 5px;
 	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#homepage p {
+	font-size: 16px;
+	line-height: 1.5em;
 }
 
 #homepageJumbotron {
 	text-align: center;
-	color: #68bf74;
 }
 
 #homepageJumbotron h1 {
-	margin: 0 auto 50px;
+	margin: 0 auto 25px;
 	font-size: 55px;
 	width: 50%;
 	letter-spacing: -0.05em;
@@ -79,8 +105,11 @@ table.dataTable {
 	line-height: 1.2em;
 }
 
-#homepageSearch {
-	padding: 20px 0 0;
+.homepageSearchBar {
+	margin-top: 25px;
+	padding: 30px;
+	background-color: #FFF;
+	text-align: center;
 }
 
 #homepageContent {
@@ -113,6 +142,10 @@ table.dataTable {
 
 #searchKeywords {
 	font-size: 16px;
+}
+
+#knownIssuesSection li {
+	margin: 15px 0 15px;
 }
 
 #resultsSummary {
@@ -219,21 +252,23 @@ table.dataTable {
 
 #footerNav {
 	text-align: center;
+	font-family: helvetica, arial, sans-serif;
 }
 
 #footerNav .logo {
 	display: block;
-	font-size: 14px;
+	font-size: 12px;
+	color: #000;
 }
 
 #footerNav ul {
-	margin-top: 25px;
+	margin-top: 10px;
 	display: inline-block;
 	width: 580px;
 }
 
 #footerNav ul li {
-	font-size: 11px;
+	font-size: 10px;
 	float: left;
 	width: 100px;
 	border-left: 1px solid #ddd;
@@ -266,20 +301,44 @@ table.dataTable {
         Classes 
 *************************/
 
+.footer {
+	height: 67px;
+	width: 100%;
+	background-color: #fff;
+	border-top: 1px solid #68bf74;
+	margin-top: 0 !important;
+	padding-top: 15px !important;
+	position: relative;
+	clear: both;
+}
+
 .filterHeader {
 	background-color: #F2F1E9 !important;
 }
 
 .main-container {
     margin: 0 auto;
+    min-height: 100%;
 }
 
 .region-footer ul {
 	list-style: none;
 }
 
+.textContentModule {
+	background-color: #F2F1E9;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 15px;
+	color: #000;
+}
+
 .fontBold {
 	font-weight: bold;
+}
+
+.fontGreen {
+	color: #68bf74;
 }
 
 .clearfloat {
@@ -319,12 +378,18 @@ table.dataTable {
 		font-size: 30px;
 		width: 100%;
 	}
+	.col-centered {
+		margin-bottom: 30px;
+	}
 }
 
 /* Medium Screens */
 @media (max-width: 992px) {
 	#homepageJumbotron h1 {
 		width: 100%;
+	}
+	.col-centered {
+		margin-bottom: 30px;
 	}
 }
 
