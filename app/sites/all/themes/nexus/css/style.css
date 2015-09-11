@@ -265,6 +265,7 @@ table.dataTable {
 	margin-top: 10px;
 	display: inline-block;
 	width: 710px;
+	padding: 0px;
 }
 
 #footerNav ul li {
