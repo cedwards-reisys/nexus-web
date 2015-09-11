@@ -9,7 +9,7 @@
     var SearchApp = FS.Class.extend({
 
         init: function () {
-            this.API_HOST = 'https://fedspending.demo.socrata.com/resource/nfu7-rhaq.json';
+            this.API_HOST = 'https://data.fedspending.gov/resource/nfu7-rhaq.json';
             this.ROWS_PER_PAGE = 20;
             this.query = {};
             this.dataViewPanels = null;
