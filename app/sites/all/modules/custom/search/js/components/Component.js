@@ -10,11 +10,19 @@
 
         init: function (options) {
             this.filter = null;
+            this.textSearch = null;
             $.extend(this, options);
         },
 
-        setFilter: function ( filter ) {
-            this.filter = filter;
+        setFilter: function ( query ) {
+            if ( query ) {
+                if (typeof query['$where'] !== 'undefined') {
+                    this.filter = query['$where'];
+                }
+                if (typeof query['$q'] !== 'undefined') {
+                    this.textSearch = query['$q'];
+                }
+            }
             return this;
         },
 
@@ -27,6 +35,10 @@
                 } else {
                     preparedQuery['$where'] = this.filter;
                 }
+            }
+
+            if ( this.textSearch ) {
+                preparedQuery['$q'] = this.textSearch;
             }
 
             return preparedQuery;

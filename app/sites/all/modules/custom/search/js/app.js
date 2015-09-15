@@ -192,7 +192,7 @@
                     grid: {
                         wrapper: $('#searchTableWrapper'),
                         render: function () {
-                            _this.getComponent('dataGrid').setFilter(_this.getQuery()['$where']);
+                            _this.getComponent('dataGrid').setFilter(_this.getQuery());
                             if ( !_this.getComponent('dataGrid').getGrid() ) {
                                 _this.getComponent('dataGrid').render();
                             } else {
@@ -203,23 +203,23 @@
                     bar: {
                         wrapper: $('#searchBarChartWrapper'),
                         render: function () {
-                            _this.getComponent('agencyBarChart').setFilter(_this.getQuery()['$where']).render();
-                            _this.getComponent('vendorBarChart').setFilter(_this.getQuery()['$where']).render();
-                            _this.getComponent('productBarChart').setFilter(_this.getQuery()['$where']).render();
-                            _this.getComponent('naicsBarChart').setFilter(_this.getQuery()['$where']).render();
+                            _this.getComponent('agencyBarChart').setFilter(_this.getQuery()).render();
+                            _this.getComponent('vendorBarChart').setFilter(_this.getQuery()).render();
+                            _this.getComponent('productBarChart').setFilter(_this.getQuery()).render();
+                            _this.getComponent('naicsBarChart').setFilter(_this.getQuery()).render();
                         }
                     },
                     map: {
                         wrapper: $('#searchMapWrapper'),
                         render: function () {
-                            _this.getComponent('vendorUsMap').setFilter(_this.getQuery()['$where']).render();
-                            _this.getComponent('popUsMap').setFilter(_this.getQuery()['$where']).render();
+                            _this.getComponent('vendorUsMap').setFilter(_this.getQuery()).render();
+                            _this.getComponent('popUsMap').setFilter(_this.getQuery()).render();
                         }
                     },
                     time: {
                         wrapper: $('#searchTimeWrapper'),
                         render: function () {
-                            _this.getComponent('amountTimeSeries').setFilter(_this.getQuery()['$where']).render();
+                            _this.getComponent('amountTimeSeries').setFilter(_this.getQuery()).render();
                         }
                     }
                 };
@@ -228,21 +228,18 @@
         },
 
         applySearchFilters: function () {
-            var filters = [];
 
             // Keyword Input
+            delete this.query['$q'];
             var textSearch = $('#searchInputKeywords').find('input').val();
             if ( textSearch ) {
                 $('#keywordsText').html(textSearch);
 
-                var preparedTextSearch = textSearch.replace(/'/g, "''").toUpperCase();
-                var textFields = ['vendorname','agencyid','fundingrequestingagencyid','descriptionofcontractrequirement'];
-                var textQueries = [];
-                for ( var i= 0,len=textFields.length;i<len;i++) {
-                    textQueries.push('UPPER(' + textFields[i] + ') like \'%' + preparedTextSearch + '%\'');
-                }
-                filters.push('(' + textQueries.join(' OR ') + ')');
+                var preparedTextSearch = textSearch.replace(/'/g, "''");
+                this.query['$q'] = preparedTextSearch;
             }
+
+            var filters = [];
 
             // Award Amount
             var awardAmountSearch = $('#awardAmountInput').val();
@@ -294,8 +291,8 @@
                 }
             });
 
-            this.getComponent('totalAmount').setFilter(this.getQuery()['$where']).render();
-            this.getComponent('totalTransactions').setFilter(this.getQuery()['$where']).render();
+            this.getComponent('totalAmount').setFilter(this.getQuery()).render();
+            this.getComponent('totalTransactions').setFilter(this.getQuery()).render();
         },
 
         addFilterFormHandlers: function() {
