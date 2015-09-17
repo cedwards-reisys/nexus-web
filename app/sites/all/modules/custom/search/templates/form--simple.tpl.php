@@ -1,3 +1,4 @@
+<img class="homepage-graphic" src="/sites/all/themes/nexus/img/homepage_process.png" width="859" height="256">
 <div class="oddColumnContainer">
     <div class="row center-block">
         <div>

@@ -8,7 +8,7 @@ html {
 
 body {
 	background-color: #FEFFFE;
-	font-family: georgia, serif;
+	font-family: helvetica, sans-serif;
 	height: 100%;
 }
 
@@ -76,6 +76,12 @@ table.dataTable {
 	padding-bottom: 0px;
 }
 
+#homepage .jumbotron .homepage-graphic { 
+	display: block;
+	text-align: center;
+	margin: 20px auto 0;
+}
+
 #homepage p {
 	font-size: 16px;
 	line-height: 1.5em;
@@ -110,6 +116,18 @@ table.dataTable {
 	padding: 30px;
 	background-color: #FFF;
 	text-align: center;
+}
+
+.homepageSearchBar div.input-group,
+.homepageSearchBar input.form-control,
+.homepageSearchBar div.input-group span.input-group-btn button {
+	height: 60px !important;
+	font-size: 36px !important;
+}
+
+.homepageSearchBar div.input-group span.input-group-btn button {
+	background-color: #68bf74;
+	color: #fff;
 }
 
 #homepageContent {
