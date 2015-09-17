@@ -95,7 +95,11 @@ table.dataTable {
 	margin: 0 auto 25px;
 	font-size: 55px;
 	width: 50%;
-	letter-spacing: -0.05em;
+	letter-spacing: -0.03em;
+}
+
+#homepageJumbotron h3 {
+	letter-spacing: -0.03em;
 }
 
 #homepageMainSection {
