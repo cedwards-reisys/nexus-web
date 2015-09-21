@@ -24,9 +24,9 @@
             var Uri = new FS.Util.UriHandler();
 
             var disclaimerMessage = new FS.MessageModal({
-                title: 'Disclaimer',
+                title: 'Heads Up!',
                 closeButtonValue: 'Continue',
-                message: 'butter'
+                messageContainer: '#searchDisclaimerText'
             });
             disclaimerMessage.initialize();
             disclaimerMessage.show();
