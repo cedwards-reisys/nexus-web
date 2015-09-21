@@ -201,7 +201,7 @@
 
 <div class="row">
     <!-- KEYWORD DISPLAY -->
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-7 col-md-offset-3">
         <div id="resultsSummary">
             <div class="row">
                 <div class="col-md-3">
