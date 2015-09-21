@@ -22,7 +22,8 @@ function fs_library() {
         ),
         'dependencies' => array(
             array('system','jquery'),
-            array('fs','moment')
+            array('fs','moment'),
+            array('fs','js-cookie')
         )
     );
 
@@ -31,6 +32,15 @@ function fs_library() {
         'version' => '2.10.6',
         'js' => array(
             'sites/all/libraries/moment/moment.min.js' => array('weight' => 0),
+        )
+    );
+
+    $libraries['js-cookie'] = array(
+        'title'   => 'js-cookie',
+        'website' => 'https://github.com/js-cookie/js-cookie',
+        'version' => '2.0.3',
+        'js' => array(
+            'sites/all/libraries/js-cookie/js.cookie-2.0.3.min.js' => array('weight' => 0)
         )
     );
 
