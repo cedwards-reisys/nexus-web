@@ -1,12 +1,17 @@
 <!-- SEARCH BAR -->
-<div class="col-md-3 col-md-offset-8 input-group" id="searchInputKeywords">
-    <input type="text" class="form-control" placeholder="Search by keywords...">
-    <span class="input-group-btn">
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            <span class="sr-only">Search</span>
-        </button>
-    </span>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1"></div>
+    <div class="col-md-3 col-md-offset-8">
+        <div class="input-group" id="searchInputKeywords">
+            <input type="text" class="form-control" placeholder="Search by keywords...">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <span class="sr-only">Search</span>
+                </button>
+            </span>
+        </div>
+    </div>
 </div>
 
 <div class="row">
@@ -27,10 +32,20 @@
                         <dd style="font-size:21px;font-weight:bold;">0</dd>
                     </dl>
                 </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <p>Download the data:</p>
+                    <ul class="list-inline">
+                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
+                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.json?accessType=DOWNLOAD">JSON</a></li>
+                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.xml?accessType=DOWNLOAD">XML</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="row">
     <!-- FILTERS -->
     <div id="searchFilterSection" class="col-md-2 col-md-offset-1">
