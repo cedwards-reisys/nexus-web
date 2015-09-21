@@ -18,11 +18,6 @@
         },
 
         initialize: function() {
-
-            if ( this.messageContainer ) {
-                this.message = $(this.messageContainer);
-            }
-
             var markup = [
                 '<div class="modal fade" role="dialog">',
                     '<div class="modal-dialog" role="document">',
@@ -42,6 +37,11 @@
                 '</div>'];
 
             this.modal = $(markup.join("\n"));
+
+            if ( this.messageContainer ) {
+                this.modal.find('.modal-body').html($(this.messageContainer).clone());
+            }
+
             $('body').append(this.modal);
             this.modal.modal({
                 show: false
