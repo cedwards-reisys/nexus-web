@@ -266,13 +266,13 @@
             // Recipient Name Input
             var recipientNameSearch = $('#recipientNameInput').val();
             if ( recipientNameSearch ) {
-                filters.push('UPPER(vendorname) = \''+recipientNameSearch.toUpperCase()+'\'');
+                filters.push('UPPER(vendorname) LIKE \'%'+recipientNameSearch.toUpperCase()+'%\'');
             }
 
             // Contracting Agency Name Input
             var contractAgencyNameSearch = $('#contractAgencyNameInput').val();
             if ( contractAgencyNameSearch ) {
-                filters.push('UPPER(agencyid) = \''+contractAgencyNameSearch.toUpperCase()+'\'');
+                filters.push('UPPER(agencyid) LIKE \'%'+contractAgencyNameSearch.toUpperCase()+'%\'');
             }
 
             if ( filters.length ) {
