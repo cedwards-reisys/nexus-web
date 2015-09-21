@@ -23,6 +23,15 @@
             var _this = this;
             var Uri = new FS.Util.UriHandler();
 
+            var disclaimerMessage = new FS.MessageModal({
+                title: 'Disclaimer',
+                closeButtonValue: 'Continue',
+                message: 'butter'
+            });
+            disclaimerMessage.initialize();
+            disclaimerMessage.show();
+
+
             var searchInputKeywords = $('#searchInputKeywords');
             searchInputKeywords.find('input').val(Uri.getParam('keywords'));
             searchInputKeywords.find('button').on('click',function(){

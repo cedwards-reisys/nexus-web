@@ -66,6 +66,8 @@ function fs_search_library() {
             drupal_get_path('module', 'fs_search').'/js/components/Choropleth.js' => array('weight' => 110),
             drupal_get_path('module', 'fs_search').'/js/components/TimeSeries.js' => array('weight' => 110),
 
+            drupal_get_path('module', 'fs_search').'/js/ModalMessage.js' => array('weight' => 110),
+
             drupal_get_path('module', 'fs_search').'/js/app.js' => array('weight' => 200,'scope' => 'footer', 'group' => JS_THEME)
         ),
         'css' => array (
