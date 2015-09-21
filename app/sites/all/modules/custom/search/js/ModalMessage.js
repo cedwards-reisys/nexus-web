@@ -10,6 +10,7 @@
     var MessageModal = FS.Class.extend({
 
         init: function (options) {
+            this.id = 'messageModal';
             this.title = 'Default Title';
             this.message = 'Default message';
             this.closeButtonValue = 'Close';
@@ -19,7 +20,7 @@
 
         initialize: function() {
             var markup = [
-                '<div class="modal fade" role="dialog">',
+                '<div class="modal fade" role="dialog" id="'+this.id+'">',
                     '<div class="modal-dialog" role="document">',
                         '<div class="modal-content">',
                             '<div class="modal-header">',
@@ -31,6 +32,7 @@
                             '</div>',
                             '<div class="modal-footer">',
                                 '<button type="button" class="btn btn-primary" data-dismiss="modal">'+this.closeButtonValue+'</button>',
+                                '<div class="checkbox"><label><input type="checkbox"> Don\'t show this again.</label></div>',
                             '</div>',
                         '</div>',
                     '</div>',
@@ -43,13 +45,36 @@
             }
 
             $('body').append(this.modal);
+
             this.modal.modal({
                 show: false
             });
+
+            var _this = this;
+            this.modal.find('input[type=checkbox]').on('click',function(){
+                if ( $(this).is(':checked') ) {
+                    _this.savePreference({
+                        display: false
+                    });
+                } else {
+                    _this.savePreference({
+                        display: true
+                    });
+                }
+            });
+
         },
 
         show: function() {
-            this.modal.modal('show');
+            var display = Cookies.get(this.id);
+            if ( typeof display === 'undefined' || display === true ) {
+                this.modal.modal('show');
+            }
+        },
+
+        savePreference: function (pref) {
+            Cookies.remove(this.id);
+            Cookies.set(this.id, pref.display,{expires:365});
         }
 
     });
