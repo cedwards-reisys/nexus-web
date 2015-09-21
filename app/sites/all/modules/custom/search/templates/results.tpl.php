@@ -204,20 +204,22 @@
     <div class="col-md-7 col-md-offset-3">
         <div id="resultsSummary">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <dl id="searchTransactionSum">
                         <dt style="font-weight:normal;">Total Amount</dt>
                         <dd style="font-size:21px;font-weight:bold;">0</dd>
                     </dl>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <dl id="searchTransactionCount">
                         <dt style="font-weight:normal;">Contracts</dt>
                         <dd style="font-size:21px;font-weight:bold;">0</dd>
                     </dl>
                 </div>
                 <div class="col-md-2"></div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-8">
                     <p>Use the following links to download the complete dataset that's being searched against.  Filters are not applied to these downloads.</p>
                     <ul class="list-inline">
                         <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
@@ -225,7 +227,9 @@
                         <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.xml?accessType=DOWNLOAD">XML</a></li>
                     </ul>
                 </div>
+                <div class="col-md-4"></div>
             </div>
         </div>
     </div>
+
 </div>
