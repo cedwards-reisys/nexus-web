@@ -1,7 +1,6 @@
 <?php
 
 function fs_search_init() {
-
     if ( 'search' === drupal_get_path_alias() ) {
         drupal_add_library('fs_search', 'fs_search');
     }
