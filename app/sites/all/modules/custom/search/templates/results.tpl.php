@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-3">
-                    <p>Use the following links to download the complete dataset used here.  Filters are not applied to these downloads.</p>
+                    <p>Use the following links to download the complete dataset that's being searched against.  Filters are not applied to these downloads.</p>
                     <ul class="list-inline">
                         <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
                         <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.json?accessType=DOWNLOAD">JSON</a></li>
