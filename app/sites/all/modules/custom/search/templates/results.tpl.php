@@ -32,9 +32,9 @@
                         <dd style="font-size:21px;font-weight:bold;">0</dd>
                     </dl>
                 </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-2">
-                    <p>Download the data:</p>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <p>Use the following links to download the complete dataset used here.  Filters are not applied to these downloads.</p>
                     <ul class="list-inline">
                         <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
                         <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.json?accessType=DOWNLOAD">JSON</a></li>
