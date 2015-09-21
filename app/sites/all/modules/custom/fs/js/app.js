@@ -20,13 +20,20 @@
         '</div>'
     ].join('\n'));
 
-    $('a[data-notify=\'external\']').on('click',function(event){
+    $('a[data-notify="external"]').on('click',function(event){
         event.stopPropagation();
         event.preventDefault();
 
-        $('.modal.in').modal('hide');
+        var existingModal = $('.modal.in');
 
-        leavingSiteModal.modal('show');
+        if ( existingModal ) {
+            existingModal.on('hidden.bs.modal', function (e) {
+                leavingSiteModal.modal('show');
+            });
+            existingModal.modal('hide');
+        } else {
+            leavingSiteModal.modal('show');
+        }
 
         var externalURI = $(this).attr('href');
         leavingSiteModal.find('button[data-continue=\'external\']').off('click').on('click', function(){

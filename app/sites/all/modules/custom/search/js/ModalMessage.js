@@ -41,7 +41,7 @@
             this.modal = $(markup.join("\n"));
 
             if ( this.messageContainer ) {
-                this.modal.find('.modal-body').html($(this.messageContainer).clone());
+                this.modal.find('.modal-body').html($(this.messageContainer).clone(true,true));
             }
 
             $('body').append(this.modal);
