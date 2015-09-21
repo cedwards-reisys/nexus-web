@@ -1,7 +1,6 @@
 <!-- SEARCH BAR -->
 <div class="row">
-    <div class="col-md-3 col-md-offset-1"></div>
-    <div class="col-md-3 col-md-offset-8">
+    <div class="col-md-8 col-md-offset-3">
         <div class="input-group" id="searchInputKeywords">
             <input type="text" class="form-control" placeholder="Search by keywords...">
             <span class="input-group-btn">
@@ -14,37 +13,6 @@
     </div>
 </div>
 
-<div class="row">
-    <!-- KEYWORD DISPLAY -->
-    <div class="col-md-10 col-md-offset-1">
-        <h5 id="searchKeywords"><span>Keywords:</span> <span id="keywordsText"></span></h5>
-        <div id="resultsSummary">
-            <div class="row">
-                <div class="col-md-3">
-                    <dl id="searchTransactionSum">
-                        <dt style="font-weight:normal;">Total Amount</dt>
-                        <dd style="font-size:21px;font-weight:bold;">0</dd>
-                    </dl>
-                </div>
-                <div class="col-md-3">
-                    <dl id="searchTransactionCount">
-                        <dt style="font-weight:normal;">Contracts</dt>
-                        <dd style="font-size:21px;font-weight:bold;">0</dd>
-                    </dl>
-                </div>
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
-                    <p>Use the following links to download the complete dataset that's being searched against.  Filters are not applied to these downloads.</p>
-                    <ul class="list-inline">
-                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
-                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.json?accessType=DOWNLOAD">JSON</a></li>
-                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.xml?accessType=DOWNLOAD">XML</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="row">
     <!-- FILTERS -->
@@ -227,6 +195,37 @@
             <div><button data-panel="bar" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-signal"></span></button></div>
             <div><button data-panel="map" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-globe"></span></button></div>
             <div><button data-panel="time" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-time"></span></button></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- KEYWORD DISPLAY -->
+    <div class="col-md-10 col-md-offset-1">
+        <div id="resultsSummary">
+            <div class="row">
+                <div class="col-md-3">
+                    <dl id="searchTransactionSum">
+                        <dt style="font-weight:normal;">Total Amount</dt>
+                        <dd style="font-size:21px;font-weight:bold;">0</dd>
+                    </dl>
+                </div>
+                <div class="col-md-3">
+                    <dl id="searchTransactionCount">
+                        <dt style="font-weight:normal;">Contracts</dt>
+                        <dd style="font-size:21px;font-weight:bold;">0</dd>
+                    </dl>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <p>Use the following links to download the complete dataset that's being searched against.  Filters are not applied to these downloads.</p>
+                    <ul class="list-inline">
+                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
+                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.json?accessType=DOWNLOAD">JSON</a></li>
+                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.xml?accessType=DOWNLOAD">XML</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
