@@ -15,6 +15,8 @@
         },
 
         setFilter: function ( query ) {
+            this.filter = null;
+            this.textSearch = null;
             if ( query ) {
                 if (typeof query['$where'] !== 'undefined') {
                     this.filter = query['$where'];

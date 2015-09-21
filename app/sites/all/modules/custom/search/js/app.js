@@ -316,9 +316,9 @@
                 $('#awardIdInput').val('');
                 $('#recipientNameInput').val('');
                 $('#awardAmountInput').val('');
-                $('#awardDateInputFrom').val();
-                $('#awardDateInputTo').val();
-                $('#contractAgencyNameInput').val();
+                $('#awardDateInputFrom').val('');
+                $('#awardDateInputTo').val('');
+                $('#contractAgencyNameInput').val('');
                 _this.updateDataView();
             });
 
