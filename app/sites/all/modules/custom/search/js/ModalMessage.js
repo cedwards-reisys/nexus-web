@@ -20,7 +20,7 @@
 
         initialize: function() {
             var markup = [
-                '<div class="modal fade" role="dialog" id="'+this.id+'" style="top:50%;margin-top:-150px;">',
+                '<div class="modal fade" role="dialog" id="'+this.id+'" style="top:50%;margin-top:-200px;">',
                     '<div class="modal-dialog" role="document">',
                         '<div class="modal-content panel-warning">',
                             '<div class="modal-header panel-heading">',
