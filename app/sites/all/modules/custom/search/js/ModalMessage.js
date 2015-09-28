@@ -20,9 +20,9 @@
 
         initialize: function() {
             var markup = [
-                '<div class="modal fade" role="dialog" id="'+this.id+'">',
+                '<div class="modal fade" role="dialog" id="'+this.id+'" style="top:50%;margin-top:-200px;">',
                     '<div class="modal-dialog" role="document">',
-                        '<div class="modal-content panel-success">',
+                        '<div class="modal-content panel-warning">',
                             '<div class="modal-header panel-heading">',
                                 '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
                                 '<h4 class="modal-title">'+this.title+'</h4>',
@@ -31,8 +31,8 @@
                                 this.message,
                             '</div>',
                             '<div class="modal-footer">',
-                                '<button type="button" class="btn btn-success" data-dismiss="modal">'+this.closeButtonValue+'</button>',
-                                '<div class="checkbox"><label><input type="checkbox"> Don\'t show this again.</label></div>',
+                                '<button type="button" style="float:right;" class="btn btn-warning" data-dismiss="modal">'+this.closeButtonValue+'</button>',
+                                '<div class="checkbox" style="float:left;"><label><input type="checkbox"> Don\'t show this again.</label></div>',
                             '</div>',
                         '</div>',
                     '</div>',
