@@ -9,6 +9,10 @@
     var SearchApp = FS.Class.extend({
 
         init: function () {
+
+            // all columns data set: nfu7-rhaq
+            // reduced columns data set: 2gu8-h37q
+
             this.API_HOST = 'https://data.fedspending.gov/resource/2gu8-h37q.json';
             this.ROWS_PER_PAGE = 20;
             this.query = {};
@@ -101,7 +105,7 @@
                 container: '#barChartAgency',
                 api_host: this.API_HOST,
                 query: {
-                    '$select': 'agencyid AS x, SUM(dollarsobligated) AS y',
+                    '$select': 'maj_agency_cat AS x, SUM(dollarsobligated) AS y',
                     '$group': 'x',
                     '$order': 'y DESC',
                     '$limit': 10
@@ -282,7 +286,7 @@
             // Contracting Agency Name Input
             var contractAgencyNameSearch = $('#contractAgencyNameInput').val();
             if ( contractAgencyNameSearch ) {
-                filters.push('UPPER(agencyid) LIKE \'%'+contractAgencyNameSearch.toUpperCase()+'%\'');
+                filters.push('UPPER(maj_agency_cat) LIKE \'%'+contractAgencyNameSearch.toUpperCase()+'%\'');
             }
 
             if ( filters.length ) {

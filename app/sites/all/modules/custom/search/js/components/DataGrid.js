@@ -62,12 +62,12 @@
                         }
                     },
                     {
-                        data: 'agencyid',
-                        name: 'agencyid'
+                        data: 'maj_agency_cat',
+                        name: 'maj_agency_cat'
                     },
                     {
-                        data: 'fundingrequestingagencyid',
-                        name: 'fundingrequestingagencyid'
+                        data: 'maj_fund_agency_cat',
+                        name: 'maj_fund_agency_cat'
                     }
                 ],
                 fnDrawCallback: function() {
@@ -75,7 +75,7 @@
                 },
                 fnServerData: function  ( sSource, aoData, fnCallback, oSettings ) {
                     var page = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength);
-                    var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','agencyid','fundingrequestingagencyid'];
+                    var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','maj_agency_cat','maj_fund_agency_cat'];
                     var order = columnNames[oSettings.aaSorting[0][0]+1] + ' ' + oSettings.aaSorting[0][1];
 
                     var query = _this.getPreparedQuery();
