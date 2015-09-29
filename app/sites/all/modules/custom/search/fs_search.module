@@ -2,7 +2,7 @@
 
 function fs_search_init() {
     $path = drupal_get_path_alias();
-    if ( 'search' === $path || 'concepts/live-search' === $path ) {
+    if ( 'search' === $path || 'concepts/live-filters' === $path ) {
         drupal_add_library('fs_search', 'fs_search');
     }
 }
