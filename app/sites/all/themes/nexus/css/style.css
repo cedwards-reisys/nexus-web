@@ -55,7 +55,7 @@ header#navbar.navbar.container-fluid.navbar-default {
 #navbar .navbar-btn img {
 	width: 225px;
 	height: 50px;
-	margin-right: 20px;
+	margin-right: 10px;
 }
 
 #navbar .logo {
@@ -94,7 +94,7 @@ header#navbar.navbar.container-fluid.navbar-default {
 }
 
 #homepage p {
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.5em;
 }
 
@@ -104,12 +104,13 @@ header#navbar.navbar.container-fluid.navbar-default {
 
 #homepageJumbotron h1 {
 	margin: 0 auto;
-	font-size: 45px;
+	font-size: 40px;
 	width: 100%;
 	letter-spacing: -0.03em;
 }
 
 #homepageJumbotron h3 {
+	font-size: 20px;
 	letter-spacing: -0.03em;
 }
 
