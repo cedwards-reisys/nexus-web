@@ -222,9 +222,9 @@
                 <div class="col-md-8">
                     <p>Use the following links to download the complete dataset that's being searched against.  Filters are not applied to these downloads.</p>
                     <ul class="list-inline">
-                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
-                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.json?accessType=DOWNLOAD">JSON</a></li>
-                        <li><a href="https://data.fedspending.gov/api/views/3kp6-u7ur/rows.xml?accessType=DOWNLOAD">XML</a></li>
+                        <li><a href="https://openbeta-data.usaspending.gov/api/views/3kp6-u7ur/rows.csv?accessType=DOWNLOAD">CSV</a></li>
+                        <li><a href="https://openbeta-data.usaspending.gov/api/views/3kp6-u7ur/rows.json?accessType=DOWNLOAD">JSON</a></li>
+                        <li><a href="https://openbeta-data.usaspending.gov/api/views/3kp6-u7ur/rows.xml?accessType=DOWNLOAD">XML</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4"></div>

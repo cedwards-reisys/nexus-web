@@ -13,7 +13,7 @@
             // all columns data set: nfu7-rhaq
             // reduced columns data set: 2gu8-h37q
 
-            this.API_HOST = 'https://data.fedspending.gov/resource/2gu8-h37q.json';
+            this.API_HOST = 'https://openbeta-data.usaspending.gov/resource/2gu8-h37q.json';
             this.ROWS_PER_PAGE = 20;
             this.query = {};
             this.dataViewPanels = null;
