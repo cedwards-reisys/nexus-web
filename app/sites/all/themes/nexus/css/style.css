@@ -16,6 +16,10 @@ body {
 	background-position: 100% 100px;
 }
 
+body.page-node-6 {
+	background-position: 100% 150px;
+}
+
 a {
 	color: #68bf74;
 }
@@ -31,6 +35,25 @@ table.dataTable {
 /************************
    ID Specific Elements 
 *************************/
+
+#banner-notice {
+	height: 50px;
+	background-color: #fdf7dc;
+	text-align: center;
+}
+
+#banner-notice > span {
+	display: block;
+	height: 30px;
+	padding: 15px 20px;
+}
+
+#banner-notice > span > img {
+	width: 36px;
+	height: 32px;
+	margin: -6px 15px 0px;
+	display: inline-block;
+}
 
 #navbar {
 	height: 100px;
