@@ -9,10 +9,6 @@
     var SearchApp = FS.Class.extend({
 
         init: function () {
-
-            // all columns data set: nfu7-rhaq
-            // reduced columns data set: 2gu8-h37q
-
             this.API_HOST = 'https://openbeta-data.usaspending.gov/resource/2gu8-h37q.json';
             this.ROWS_PER_PAGE = 20;
             this.query = {};
@@ -26,16 +22,6 @@
 
             var _this = this;
             var Uri = new FS.Util.UriHandler();
-
-            var disclaimerMessage = new FS.MessageModal({
-                id: 'disclaimerMessageModal',
-                title: 'Heads Up!',
-                closeButtonValue: 'Continue',
-                messageContainer: '#searchDisclaimerText'
-            });
-            disclaimerMessage.initialize();
-            disclaimerMessage.show();
-
 
             var searchInputKeywords = $('#searchInputKeywords');
             searchInputKeywords.find('input').val(Uri.getParam('keywords'));
