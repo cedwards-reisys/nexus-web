@@ -75,7 +75,7 @@
 ?>
 <div id="banner-notice">
     <span>
-        <img src="http://spending.reisys.io/sites/all/themes/nexus/img/icon_warning.png"><strong>This site is not intended to be an offical resource for Federal spending data.</strong> For Official Federal Spending data, please visit <a href="http://www.usaspending.gov" title="USAspending.gov">USAspending.gov</a>
+        <img src="/sites/all/themes/nexus/img/icon_warning.png"><strong>This site is not intended to be an official resource for Federal spending data.</strong> For Official Federal Spending data, please visit <a href="http://www.usaspending.gov" title="USAspending.gov">USAspending.gov</a>
     </span>
 </div>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
