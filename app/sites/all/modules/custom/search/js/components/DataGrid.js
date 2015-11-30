@@ -11,6 +11,8 @@
         init: function (options) {
             this._super(options);
             this.grid = null;
+            this.lastKeywordSearch = '';
+            this.lastFilter = '';
         },
 
         getGrid: function() {
@@ -26,7 +28,7 @@
                 searching: false,
                 iDisplayLength: _this.ROWS_PER_PAGE,
                 bLengthChange: false,
-                order: [[ 2,'desc']],
+                order: [],
                 language: {
                     info: 'Showing _START_ to _END_ of _MAX_ records',
                     processing: '<div class="dataViewFetching"></div>'
@@ -76,13 +78,38 @@
                 fnServerData: function  ( sSource, aoData, fnCallback, oSettings ) {
                     var page = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength);
                     var columnNames = ['descriptionofcontractrequirement','vendorname','piid','dollarsobligated','signeddate','maj_agency_cat','maj_fund_agency_cat'];
-                    var order = columnNames[oSettings.aaSorting[0][0]+1] + ' ' + oSettings.aaSorting[0][1];
 
                     var query = _this.getPreparedQuery();
                     query['$select'] = columnNames.join(',');
                     query['$offset'] =  page * _this.ROWS_PER_PAGE;
                     query['$limit'] = _this.ROWS_PER_PAGE;
-                    query['$order'] = order;
+
+                    if ( typeof query['$q'] !== 'undefined' && _this.lastKeywordSearch !== query['$q'] ) {
+                        // clear sort: new query
+                        oSettings.aaSorting = [];
+                    } else if ( typeof query['$q'] === 'undefined' && _this.lastKeywordSearch !== '' ) {
+                        // clear sort: empty query, previously not empty
+                        oSettings.aaSorting = [];
+                    } else if ( typeof query['$q'] === 'undefined' && typeof query['$where'] === 'undefined' && _this.lastFilter !== '' ) {
+                        // clear sort: no query and no filters, previously filtered
+                        oSettings.aaSorting = [];
+                    }
+
+                    if ( oSettings.aaSorting.length ) {
+                        query['$order'] = columnNames[oSettings.aaSorting[0][0]+1] + ' ' + oSettings.aaSorting[0][1];
+                    }
+
+                    if ( typeof query['$q'] !== 'undefined' ) {
+                        _this.lastKeywordSearch = query['$q'];
+                    } else {
+                        _this.lastKeywordSearch = '';
+                    }
+
+                    if ( typeof query['$where'] !== 'undefined' ) {
+                        _this.lastFilter = query['$where'];
+                    } else {
+                        _this.lastFilter = '';
+                    }
 
                     oSettings.jqXHR = $.ajax({
                         dataType: 'json',
