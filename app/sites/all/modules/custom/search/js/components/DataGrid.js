@@ -142,6 +142,10 @@
                                 countQuery['$where'] = query['$where'];
                             }
 
+                            if ( query['$q'] ) {
+                                countQuery['$q'] = query['$q'];
+                            }
+
                             $.ajax({
                                 url: _this.api_host,
                                 type: 'GET',
